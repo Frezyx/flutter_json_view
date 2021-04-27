@@ -27,6 +27,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return JsonView.string(
-        '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]');
+      '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]',
+    );
   }
 }

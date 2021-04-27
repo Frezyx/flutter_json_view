@@ -6,7 +6,7 @@ abstract class AssetLoader {
     return rootBundle.loadString(path);
   }
 
-  static Future<Map<String, dynamic>> getAssetJson(String filePath) async {
+  static Future<dynamic> getAssetJson(String filePath) async {
     final jsonString = await _loadAssets(filePath);
     return JsonConverter.jsonStringToObject(jsonString);
   }

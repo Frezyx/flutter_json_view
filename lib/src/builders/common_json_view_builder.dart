@@ -7,7 +7,7 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
   const CommonJsonViewBuilder(this.jsonObj, {JsonViewTheme? jsonViewTheme})
       : _jsonViewTheme = jsonViewTheme;
 
-  final Map<String, dynamic> jsonObj;
+  final dynamic jsonObj;
   final JsonViewTheme? _jsonViewTheme;
 
   @override
@@ -22,6 +22,8 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
   JsonViewTheme? get jsonViewTheme => _jsonViewTheme;
 
   List<Widget> _renderJsonWidgets() {
+    if (jsonObj is Map<String, dynamic>) {
+    } else if (jsonObj is List) {}
     return [];
   }
 }
