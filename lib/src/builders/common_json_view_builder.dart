@@ -21,8 +21,13 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
 
   Widget _renderJsonWidgets() {
     if (jsonObj is Map<String, dynamic>) {
-      return MapBuilder(
+      return JsonMapBuilder(
         jsonObj: jsonObj as Map<String, dynamic>,
+        jsonViewTheme: _jsonViewTheme,
+      );
+    } else if (jsonObj is List) {
+      return JsonListBuilder(
+        jsonObj: jsonObj as List,
         jsonViewTheme: _jsonViewTheme,
       );
     }
