@@ -26,8 +26,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return JsonView.string(
-      '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]',
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(60.0),
+        child: JsonView.string(
+          '{"value": "New", "onclick": "CreateDoc()"}',
+          // '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]',
+        ),
+      ),
     );
   }
 }

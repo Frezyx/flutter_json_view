@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:json_view/src/builders/primitive_builders/primitive_builders.dart';
 import 'package:json_view/src/theme/json_view_theme.dart';
 
 import 'builders.dart';
 
 class CommonJsonViewBuilder implements JsonViewBuilder {
-  const CommonJsonViewBuilder(this.jsonObj, {JsonViewTheme? jsonViewTheme})
-      : _jsonViewTheme = jsonViewTheme;
+  CommonJsonViewBuilder(this.jsonObj, {JsonViewTheme? jsonViewTheme})
+      : _jsonViewTheme = jsonViewTheme ?? JsonViewTheme();
 
   final dynamic jsonObj;
-  final JsonViewTheme? _jsonViewTheme;
+  final JsonViewTheme _jsonViewTheme;
 
   @override
   Widget build() {
-    final buildedWidgets = _renderJsonWidgets();
-    return ListView(
-      children: buildedWidgets,
-    );
+    return _renderJsonWidgets();
   }
 
   @override
   JsonViewTheme? get jsonViewTheme => _jsonViewTheme;
 
-  List<Widget> _renderJsonWidgets() {
+  Widget _renderJsonWidgets() {
     if (jsonObj is Map<String, dynamic>) {
-    } else if (jsonObj is List) {}
-    return [];
+      return MapBuilder(
+        jsonObj: jsonObj as Map<String, dynamic>,
+        jsonViewTheme: _jsonViewTheme,
+      );
+    }
+    return Container(
+      color: Colors.red,
+      width: 100,
+      height: 100,
+    );
   }
 }
