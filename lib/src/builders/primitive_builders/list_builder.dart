@@ -15,7 +15,8 @@ class JsonListBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = _buildJsonItems();
-    return ListView(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: items,
     );
   }

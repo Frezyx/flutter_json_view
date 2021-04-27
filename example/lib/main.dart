@@ -24,15 +24,22 @@ class Home extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  final open = '[';
+  final close = ']';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(60.0),
+        padding: const EdgeInsets.only(top: 60.0, left: 10, right: 10),
         child: JsonView.string(
-          '{"value": "New", "onclick": "CreateDoc()"}',
-          // '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]',
-        ),
+            // '{"value": "New", "onclick": "CreateDoc()"}',
+            // '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]',
+            open +
+                '{"employees":[{"name":"Shyam", "email":"shyamjaiswal@gmail.com"},{"name":"Bob", "email":"bob32@gmail.com"},{"name":"Jai", "email":"jai87@gmail.com"}]},' *
+                    50 +
+                '{"employees":[{"name":"Shyam", "email":"shyamjaiswal@gmail.com"},{"name":"Bob", "email":"bob32@gmail.com"},{"name":"Jai", "email":"jai87@gmail.com"}]}' +
+                close),
       ),
     );
   }

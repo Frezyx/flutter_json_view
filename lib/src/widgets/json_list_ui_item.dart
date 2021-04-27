@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:json_view/src/builders/builders.dart';
 import 'package:json_view/src/theme/json_view_theme.dart';
 
 class JsonListItem extends StatelessWidget {
-  const JsonListItem({
+  JsonListItem({
     Key? key,
     required this.value,
     required this.jsonViewTheme,
-  }) : super(key: key);
+  })   : _commonBuilder = CommonJsonViewBuilder(
+          value,
+          jsonViewTheme: jsonViewTheme,
+        ),
+        super(key: key);
 
   final dynamic value;
   final JsonViewTheme jsonViewTheme;
+  final CommonJsonViewBuilder _commonBuilder;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text('$value'),
-      ],
-    );
+    return _commonBuilder.build();
   }
 }

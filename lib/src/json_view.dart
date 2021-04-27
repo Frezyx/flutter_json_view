@@ -23,6 +23,8 @@ class JsonView extends StatefulWidget {
 class _JsonViewState extends State<JsonView> {
   @override
   Widget build(BuildContext context) {
-    return widget._builder.build();
+    return SingleChildScrollView(
+      child: widget._builder.build(),
+    );
   }
 }
