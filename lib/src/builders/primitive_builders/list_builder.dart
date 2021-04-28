@@ -18,11 +18,23 @@ class JsonListBuilder extends StatefulWidget {
 }
 
 class _JsonListBuilderState extends State<JsonListBuilder> {
-  bool isOpened = false;
+  bool isOpened = true;
 
   @override
   Widget build(BuildContext context) {
     final items = _buildJsonItems();
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: () => setState(() => isOpened = !isOpened),
+          child: Icon(isOpened ? Icons.arrow_drop_up : Icons.arrow_drop_down),
+        ),
+        _buildItem(items),
+      ],
+    );
+  }
+
+  Widget _buildItem(List<Widget> items) {
     if (!isOpened) {
       return ClosedJsonObjectItem(
         isList: true,
