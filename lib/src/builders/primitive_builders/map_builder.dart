@@ -22,7 +22,7 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
   @override
   Widget build(BuildContext context) {
     if (!isOpened) {
-      return ClosedJsonObjectItem(
+      return const ClosedJsonObjectItem(
         isList: false,
         type: 'Object',
       );

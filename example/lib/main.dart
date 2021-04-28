@@ -32,7 +32,9 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 60.0, left: 10, right: 10),
-        child: JsonView.string(
+        child:
+            // JsonView.asset('assets/test.json'),
+            JsonView.string(
           '{"team":{"value": "New", "onclick": "CreateDoc()"}}',
           // '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]',
           // open +
