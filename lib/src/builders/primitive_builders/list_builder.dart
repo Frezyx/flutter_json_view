@@ -27,7 +27,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
       return ClosedJsonObjectItem(
         isList: true,
         count: widget.jsonObj.length,
-        type: _getType(),
+        type: Typer.getType(widget.jsonObj.first),
       );
     }
     return Column(
@@ -45,14 +45,5 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
           ),
         )
         .toList();
-  }
-
-  String _getType() {
-    final firstItem = widget.jsonObj.first;
-    return Typer.isObject(firstItem)
-        ? 'Object'
-        : Typer.isList(firstItem)
-            ? 'Array'
-            : widget.jsonObj.first.runtimeType.toString();
   }
 }

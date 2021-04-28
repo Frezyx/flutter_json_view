@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:json_view/src/theme/json_view_theme.dart';
 import 'package:json_view/src/widgets/widgets.dart';
 
-class JsonMapBuilder extends StatelessWidget {
+class JsonMapBuilder extends StatefulWidget {
   const JsonMapBuilder({
     Key? key,
     required this.jsonObj,
@@ -13,7 +13,20 @@ class JsonMapBuilder extends StatelessWidget {
   final JsonViewTheme jsonViewTheme;
 
   @override
+  _JsonMapBuilderState createState() => _JsonMapBuilderState();
+}
+
+class _JsonMapBuilderState extends State<JsonMapBuilder> {
+  bool isOpened = false;
+
+  @override
   Widget build(BuildContext context) {
+    if (!isOpened) {
+      return ClosedJsonObjectItem(
+        isList: false,
+        type: 'Object',
+      );
+    }
     final items = _buildJsonItems();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,11 +35,11 @@ class JsonMapBuilder extends StatelessWidget {
   }
 
   List<Widget> _buildJsonItems() {
-    return jsonObj.entries
+    return widget.jsonObj.entries
         .map(
           (e) => JsonItem(
             entry: e,
-            jsonViewTheme: jsonViewTheme,
+            jsonViewTheme: widget.jsonViewTheme,
           ),
         )
         .toList();

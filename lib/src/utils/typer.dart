@@ -10,4 +10,12 @@ abstract class Typer {
   static bool isList(dynamic value) {
     return value is List;
   }
+
+  static String getType(dynamic value) {
+    return Typer.isObject(value)
+        ? 'Object'
+        : Typer.isList(value)
+            ? 'Array'
+            : value.runtimeType.toString();
+  }
 }

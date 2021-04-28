@@ -7,7 +7,7 @@ class ClosedJsonObjectItem extends StatelessWidget {
     required this.isList,
     this.type,
     this.count,
-  })  : assert(keyName != null || (type != null && count != null)),
+  })  : assert(!isList || (isList && type != null && count != null)),
         super(key: key);
 
   final bool isList;
