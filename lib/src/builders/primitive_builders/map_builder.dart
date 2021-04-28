@@ -17,10 +17,23 @@ class JsonMapBuilder extends StatefulWidget {
 }
 
 class _JsonMapBuilderState extends State<JsonMapBuilder> {
-  bool isOpened = false;
+  bool isOpened = true;
 
   @override
   Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GestureDetector(
+          onTap: () => setState(() => isOpened = !isOpened),
+          child: Icon(isOpened ? Icons.arrow_drop_up : Icons.arrow_drop_down),
+        ),
+        _buidItem(),
+      ],
+    );
+  }
+
+  Widget _buidItem() {
     if (!isOpened) {
       return const ClosedJsonObjectItem(
         isList: false,

@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
             // JsonView.asset('assets/test.json'),
             JsonView.string(
           // '{"team":{"value": "New", "onclick": "CreateDoc()"}}',
-          '["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]]',
+          '["Sunday", "Monday", "Tuesday", {"team":{"value1": "New","value2": "New","value3": "New","value4": "New","value5": "New","value6": "New","value7": "New","value8": "New","value9": "New", "onclick": "CreateDoc()"}}, "Thursday", "Friday", ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]]',
           // open +
           //     '{"employees":[{"name":"Shyam", "email":"shyamjaiswal@gmail.com"},{"name":"Bob", "email":"bob32@gmail.com"},{"name":"Jai", "email":"jai87@gmail.com"}]},' *
           //         50 +

@@ -24,6 +24,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
   Widget build(BuildContext context) {
     final items = _buildJsonItems();
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
           onTap: () => setState(() => isOpened = !isOpened),

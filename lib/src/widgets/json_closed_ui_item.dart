@@ -18,6 +18,7 @@ class ClosedJsonObjectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (keyName != null) Text(keyName ?? ''),
         if (keyName != null) Text(':'),
