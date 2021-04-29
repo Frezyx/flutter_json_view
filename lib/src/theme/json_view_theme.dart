@@ -11,6 +11,7 @@ class JsonViewTheme {
     this.openIcon = const Icon(Icons.arrow_drop_down),
     this.errorWidget = const Text('error'),
     this.seporator = const Text(' : '),
+    this.loadingWidget = const CircularProgressIndicator(),
   });
 
   final TextStyle keyStyle;
@@ -22,4 +23,5 @@ class JsonViewTheme {
   final Widget openIcon;
   final Widget errorWidget;
   final Widget seporator;
+  final Widget loadingWidget;
 }

@@ -27,12 +27,7 @@ class _JsonLoaderItemState extends State<JsonLoaderItem> {
 
   @override
   Widget build(BuildContext context) {
-    return _commonBuilder?.build() ??
-        Container(
-          color: Colors.green,
-          width: 100,
-          height: 100,
-        );
+    return _commonBuilder?.build() ?? widget.jsonViewTheme.loadingWidget;
   }
 
   Future<void> _initializeBuilder() async {
