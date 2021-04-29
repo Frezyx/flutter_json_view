@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:json_view/src/theme/json_view_theme.dart';
-import 'package:json_view/src/utils/utils.dart';
+import 'package:json_view/src/widgets/widgets.dart';
 
 import 'builders.dart';
 
 class AssetJsonViewBuilder implements JsonViewBuilder {
-  AssetJsonViewBuilder(String path, {JsonViewTheme? jsonViewTheme})
-      : _commonBuilder = CommonJsonViewBuilder(
-          AssetLoader.getAssetJson(path),
-          jsonViewTheme: jsonViewTheme ?? JsonViewTheme(),
-        );
+  AssetJsonViewBuilder(this.path, {JsonViewTheme? jsonViewTheme})
+      : _jsonViewTheme = jsonViewTheme ?? const JsonViewTheme() {}
 
-  final JsonViewBuilder _commonBuilder;
+  final String path;
+  final JsonViewTheme _jsonViewTheme;
 
   @override
   Widget build() {
-    return _commonBuilder.build();
+    return JsonLoaderItem(
+      path: path,
+      jsonViewTheme: _jsonViewTheme,
+    );
   }
 
   @override
-  JsonViewTheme? get jsonViewTheme => _commonBuilder.jsonViewTheme;
+  JsonViewTheme get jsonViewTheme => _jsonViewTheme;
 }
