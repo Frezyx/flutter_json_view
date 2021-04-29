@@ -27,7 +27,7 @@ class PrimitiveBuilder extends StatelessWidget {
       );
     } else if (jsonObj is String) {
       return PrimitiveJsonItem(
-        jsonObj: jsonObj,
+        jsonObj: '"$jsonObj"',
         textStyle: _jsonViewTheme.stringStyle,
       );
     } else if (jsonObj is bool) {

@@ -1,4 +1,6 @@
 {   
-    "value": "New", 
-    "onclick": "CreateDoc()"
+    "name": "Alexander", 
+    "age": 20,
+    "student": true,
+    "height": 190.5
 }
