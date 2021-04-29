@@ -24,12 +24,27 @@ class JsonItem extends StatelessWidget {
     if (valueWidget is JsonMapBuilder) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Text('${entry.key} :'), valueWidget],
+        children: [
+          Row(
+            children: [
+              Text(entry.key, style: jsonViewTheme.keyStyle),
+              jsonViewTheme.seporator,
+            ],
+          ),
+          valueWidget
+        ],
       );
     }
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [Text(entry.key), const Text(' : '), valueWidget],
+      children: [
+        Text(
+          entry.key,
+          style: jsonViewTheme.keyStyle,
+        ),
+        jsonViewTheme.seporator,
+        valueWidget
+      ],
     );
   }
 }

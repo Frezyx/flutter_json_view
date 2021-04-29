@@ -26,7 +26,9 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
       children: [
         GestureDetector(
           onTap: () => setState(() => isOpened = !isOpened),
-          child: Icon(isOpened ? Icons.arrow_drop_up : Icons.arrow_drop_down),
+          child: isOpened
+              ? widget.jsonViewTheme.closeIcon
+              : widget.jsonViewTheme.openIcon,
         ),
         _buidItem(),
       ],
@@ -35,8 +37,9 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
 
   Widget _buidItem() {
     if (!isOpened) {
-      return const ClosedJsonObjectItem(
+      return ClosedJsonObjectItem(
         isList: false,
+        jsonViewTheme: widget.jsonViewTheme,
         type: 'Object',
       );
     }

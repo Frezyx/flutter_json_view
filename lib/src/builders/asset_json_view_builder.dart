@@ -8,7 +8,7 @@ class AssetJsonViewBuilder implements JsonViewBuilder {
   AssetJsonViewBuilder(String path, {JsonViewTheme? jsonViewTheme})
       : _commonBuilder = CommonJsonViewBuilder(
           AssetLoader.getAssetJson(path),
-          jsonViewTheme: jsonViewTheme,
+          jsonViewTheme: jsonViewTheme ?? JsonViewTheme(),
         );
 
   final JsonViewBuilder _commonBuilder;

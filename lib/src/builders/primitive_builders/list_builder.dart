@@ -28,7 +28,9 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
       children: [
         GestureDetector(
           onTap: () => setState(() => isOpened = !isOpened),
-          child: Icon(isOpened ? Icons.arrow_drop_up : Icons.arrow_drop_down),
+          child: isOpened
+              ? widget.jsonViewTheme.closeIcon
+              : widget.jsonViewTheme.openIcon,
         ),
         _buildItem(items),
       ],
@@ -39,6 +41,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
     if (!isOpened) {
       return ClosedJsonObjectItem(
         isList: true,
+        jsonViewTheme: widget.jsonViewTheme,
         count: widget.jsonObj.length,
         type: Typer.getType(widget.jsonObj.first),
       );

@@ -18,24 +18,24 @@ class PrimitiveBuilder extends StatelessWidget {
     if (jsonObj is int) {
       return PrimitiveJsonItem(
         jsonObj: jsonObj,
+        textStyle: _jsonViewTheme.intStyle,
       );
     } else if (jsonObj is double) {
       return PrimitiveJsonItem(
         jsonObj: jsonObj,
+        textStyle: _jsonViewTheme.doubleStyle,
       );
     } else if (jsonObj is String) {
       return PrimitiveJsonItem(
         jsonObj: jsonObj,
+        textStyle: _jsonViewTheme.stringStyle,
       );
     } else if (jsonObj is bool) {
       return PrimitiveJsonItem(
         jsonObj: jsonObj,
+        textStyle: _jsonViewTheme.boolStyle,
       );
     }
-    return Container(
-      color: Colors.red,
-      width: 100,
-      height: 100,
-    );
+    return _jsonViewTheme.errorWidget;
   }
 }

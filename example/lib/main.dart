@@ -42,6 +42,20 @@ class Home extends StatelessWidget {
           //         50 +
           //     '{"employees":[{"name":"Shyam", "email":"shyamjaiswal@gmail.com"},{"name":"Bob", "email":"bob32@gmail.com"},{"name":"Jai", "email":"jai87@gmail.com"}]}' +
           //     close,
+          theme: JsonViewTheme(
+            stringStyle: TextStyle(
+              color: Colors.amber,
+            ),
+            boolStyle: TextStyle(
+              color: Colors.red,
+            ),
+            intStyle: TextStyle(
+              color: Colors.green,
+            ),
+            doubleStyle: TextStyle(
+              color: Colors.purple,
+            ),
+          ),
         ),
       ),
     );
