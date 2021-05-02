@@ -18,7 +18,7 @@ class JsonViewApp extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: JsonView.string(
-            '{"people":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186}}',
+            '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
           ),
         ),
       ),
