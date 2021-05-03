@@ -1,8 +1,13 @@
 # flutter_json_view
 
-👀 Displaying json models in a Flutter widget<br>
-😎 Cool solution for viewing models in debug working
-
+<p align="center">
+  <img src="./example/repo/json_view_logo.png" width="300px">
+</p>
+<h2 align="center">Displaying json models in a Flutter widget</h2>
+<p align="center">
+  😎 Cool solution for viewing models in debug working
+</p>
+<br>
 
 | ![Image](/example/repo/example_mov.gif) | ![Image](/example/repo/example1.jpg) | ![Image](/example/repo/example3.jpg) | 
 | :------------: | :------------: | :------------: |
