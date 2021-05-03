@@ -1,6 +1,6 @@
 name: flutter_json_view
-description: Displaying json models in a Flutter widget.
-version: 0.1.0
+description: Displaying json models in a Flutter widget with customization.
+version: 0.1.1
 author: 'youngfrezyx@gmail.com'
 homepage: https://github.com/Frezyx/flutter_json_view
 
