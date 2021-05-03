@@ -14,14 +14,35 @@ class JsonViewTheme {
     this.loadingWidget = const CircularProgressIndicator(),
   });
 
+  /// Style of json Object keys name displaying
   final TextStyle keyStyle;
+
+  /// Style of json Object [double] values displaying
   final TextStyle doubleStyle;
+
+  /// Style of json Object [int] values displaying
   final TextStyle intStyle;
+
+  /// Style of json Object [bool] values displaying
   final TextStyle boolStyle;
+
+  /// Style of json Object [String] values displaying
   final TextStyle stringStyle;
+
+  /// This icon is shown when the object's fields are hidden
   final Widget closeIcon;
+
+  /// This icon is shown when the object's fields are shown
   final Widget openIcon;
+
+  /// This widget will be shown at the moment
+  /// when the package cannot handle the value.
   final Widget errorWidget;
+
+  /// Key and value separator widget
   final Widget seporator;
+
+  /// When loading data from a file, (web in future)
+  /// this widget will be shown at the time of processing
   final Widget loadingWidget;
 }
