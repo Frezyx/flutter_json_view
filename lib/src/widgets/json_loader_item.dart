@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:json_view/json_view.dart';
-import 'package:json_view/src/builders/builders.dart';
-import 'package:json_view/src/utils/utils.dart';
+import 'package:flutter_json_view/flutter_json_view.dart';
+import 'package:flutter_json_view/src/builders/builders.dart';
+import 'package:flutter_json_view/src/utils/utils.dart';
 
 class JsonLoaderItem extends StatefulWidget {
   const JsonLoaderItem({

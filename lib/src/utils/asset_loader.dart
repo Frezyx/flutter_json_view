@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:json_view/src/utils/converter.dart';
+import 'package:flutter_json_view/src/utils/converter.dart';
 
 abstract class AssetLoader {
   static Future<String> _loadAssets(String path) async {

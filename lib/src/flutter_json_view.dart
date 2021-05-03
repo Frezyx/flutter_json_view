@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:json_view/src/builders/builders.dart';
-import 'package:json_view/src/theme/json_view_theme.dart';
+import 'package:flutter_json_view/src/builders/builders.dart';
+import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
 class JsonView extends StatefulWidget {
   JsonView.string(

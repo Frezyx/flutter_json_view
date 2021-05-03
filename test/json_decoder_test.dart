@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:json_view/src/utils/utils.dart';
+import 'package:flutter_json_view/src/utils/utils.dart';
 
 void main() {
   group(

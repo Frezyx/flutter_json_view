@@ -1,13 +1,10 @@
-# json_view
+# flutter_json_view
 
-A new Flutter package project.
+👀 Displaying json models in a Flutter widget
+😎 Cool solution for viewing models in debug working
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
 
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 

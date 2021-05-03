@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:json_view/src/builders/primitive_builders/primitive_builders.dart';
-import 'package:json_view/src/theme/json_view_theme.dart';
+import 'package:flutter_json_view/src/builders/primitive_builders/primitive_builders.dart';
+import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
 import 'builders.dart';
 import 'primitive_builders/primitive_builder.dart';

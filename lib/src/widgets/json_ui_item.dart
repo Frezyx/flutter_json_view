@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:json_view/src/builders/builders.dart';
-import 'package:json_view/src/builders/primitive_builders/map_builder.dart';
-import 'package:json_view/src/theme/json_view_theme.dart';
+import 'package:flutter_json_view/src/builders/builders.dart';
+import 'package:flutter_json_view/src/builders/primitive_builders/map_builder.dart';
+import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
 class JsonItem extends StatelessWidget {
   JsonItem({

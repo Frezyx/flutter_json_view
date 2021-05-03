@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:json_view/json_view.dart';
+import 'package:flutter_json_view/flutter_json_view.dart';
 
 void main() {
   runApp(JsonViewApp());
@@ -15,7 +15,7 @@ class JsonViewApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('json_view 0.1.0')),
+        appBar: AppBar(title: Text('flutter_json_view 0.1.0')),
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: JsonView.string(
