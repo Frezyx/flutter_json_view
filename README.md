@@ -1,7 +1,7 @@
 # flutter_json_view
 
 <p align="center">
-  <img src="./example/repo/json_view_logo.png" width="300px">
+  <img src="https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/json_view_logo.png?raw=true" width="300px">
 </p>
 <h2 align="center">Displaying json models in a Flutter widget</h2>
 <p align="center">
@@ -9,7 +9,7 @@
 </p>
 <br>
 
-| ![Image](https://github.com/Frezyx/flutter_json_view/blob/master/example/repo/example_mov.gif?raw=true) | ![Image](/example/repo/example1.jpg) | ![Image](/example/repo/example3.jpg) | 
+| ![Image](https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/example_mov.gif?raw=true) | ![Image](https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/example1.jpg?raw=true) | ![Image](https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/example3.jpg?raw=true) | 
 | :------------: | :------------: | :------------: |
 
 
@@ -47,7 +47,7 @@ JsonView.asset('assets/data.json'),
 ## Customization
 🎨 The package was created in order to be able to customize your json view
 
-<img src="./example/repo/customization_example.jpg" alt="drawing" width="400"/>
+<img src="https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/customization_example.jpg?raw=true" alt="drawing" width="400"/>
 
 ```dart
 JsonView.string(
