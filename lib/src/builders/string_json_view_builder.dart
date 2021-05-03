@@ -8,7 +8,7 @@ class StringJsonViewBuilder implements JsonViewBuilder {
   StringJsonViewBuilder(this.jsonString, {JsonViewTheme? jsonViewTheme})
       : _commonBuilder = CommonJsonViewBuilder(
           JsonConverter.jsonStringToObject(jsonString),
-          jsonViewTheme: jsonViewTheme ?? JsonViewTheme(),
+          jsonViewTheme: jsonViewTheme ?? const JsonViewTheme(),
         );
 
   final String jsonString;

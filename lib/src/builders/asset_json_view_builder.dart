@@ -6,7 +6,7 @@ import 'builders.dart';
 
 class AssetJsonViewBuilder implements JsonViewBuilder {
   AssetJsonViewBuilder(this.path, {JsonViewTheme? jsonViewTheme})
-      : _jsonViewTheme = jsonViewTheme ?? const JsonViewTheme() {}
+      : _jsonViewTheme = jsonViewTheme ?? const JsonViewTheme();
 
   final String path;
   final JsonViewTheme _jsonViewTheme;
