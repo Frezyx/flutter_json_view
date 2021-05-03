@@ -9,7 +9,7 @@
 </p>
 <br>
 
-| ![Image](/example/repo/example_mov.gif) | ![Image](/example/repo/example1.jpg) | ![Image](/example/repo/example3.jpg) | 
+| ![Image](https://github.com/Frezyx/flutter_json_view/blob/master/example/repo/example_mov.gif?raw=true) | ![Image](/example/repo/example1.jpg) | ![Image](/example/repo/example3.jpg) | 
 | :------------: | :------------: | :------------: |
 
 
