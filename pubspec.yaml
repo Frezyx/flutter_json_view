@@ -2,7 +2,7 @@ name: flutter_json_view
 description: Displaying json models in a Flutter widget.
 version: 0.1.0
 author: 'youngfrezyx@gmail.com'
-homepage: null
+homepage: https://github.com/Frezyx/flutter_json_view
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

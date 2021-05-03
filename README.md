@@ -3,6 +3,11 @@
 👀 Displaying json models in a Flutter widget<br>
 😎 Cool solution for viewing models in debug working
 
+
+| ![Image](/example/repo/example_mov.gif) | ![Image](/example/repo/example1.jpg) | ![Image](/example/repo/example3.jpg) | 
+| :------------: | :------------: | :------------: |
+
+
 ## Getting Started
 
 ### Add dependency
@@ -21,13 +26,6 @@ import 'package:flutter_json_view/flutter_json_view.dart';
 ### Easy to use
 
 Add one of the constructors in your code
-
-| ![Image](/example/repo/example_mov.gif) | ![Image](/example/repo/example1.jpg) | ![Image](/example/repo/example3.jpg) | 
-| :------------: | :------------: | :------------: |
-
-
-<img src="./example/repo/mac_github_screen.png" alt="drawing" />
-
 
 #### String constructor
 
