@@ -1,4 +1,8 @@
-## 0.1.0
+## 0.1.2
+
+* Fix naming seporator -> separator
+
+## 0.1.1
 
 * Fix pub issues
 * Fix README file paths

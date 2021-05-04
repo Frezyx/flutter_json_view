@@ -1,5 +1,3 @@
-# flutter_json_view
-
 <p align="center">
   <img src="https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/json_view_logo.png?raw=true" width="300px">
 </p>
@@ -19,7 +17,7 @@
 
 ```yaml
 dependencies:
-  flutter_json_view: ^0.1.1
+  flutter_json_view: ^0.1.2
 ```
 
 ### Add import package
