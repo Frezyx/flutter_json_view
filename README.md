@@ -84,7 +84,7 @@ JsonView.string(
         color: Colors.green,
         size: 20,
       ),
-      seporator: Padding(
+      separator: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0),
         child: Icon(
           Icons.arrow_right_alt_outlined,

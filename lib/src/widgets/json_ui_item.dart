@@ -28,7 +28,7 @@ class JsonItem extends StatelessWidget {
           Row(
             children: [
               Text(entry.key, style: jsonViewTheme.keyStyle),
-              jsonViewTheme.seporator,
+              jsonViewTheme.separator,
             ],
           ),
           valueWidget
@@ -42,7 +42,7 @@ class JsonItem extends StatelessWidget {
           entry.key,
           style: jsonViewTheme.keyStyle,
         ),
-        jsonViewTheme.seporator,
+        jsonViewTheme.separator,
         valueWidget
       ],
     );
