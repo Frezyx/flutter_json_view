@@ -10,7 +10,7 @@ class JsonViewTheme {
     this.closeIcon = const Icon(Icons.arrow_drop_up, size: 18),
     this.openIcon = const Icon(Icons.arrow_drop_down, size: 18),
     this.errorWidget = const Text('error'),
-    this.seporator = const Text(' : '),
+    this.separator = const Text(' : '),
     this.loadingWidget = const CircularProgressIndicator(),
   });
 
@@ -40,7 +40,7 @@ class JsonViewTheme {
   final Widget errorWidget;
 
   /// Key and value separator widget
-  final Widget seporator;
+  final Widget separator;
 
   /// When loading data from a file, (web in future)
   /// this widget will be shown at the time of processing

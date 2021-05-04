@@ -28,7 +28,7 @@ class ClosedJsonObjectItem extends StatelessWidget {
             keyName ?? '',
             style: jsonViewTheme.keyStyle,
           ),
-        if (keyName != null) jsonViewTheme.seporator,
+        if (keyName != null) jsonViewTheme.separator,
         if (isList)
           Text(
             'Array<$type>[${count ?? 0}]',

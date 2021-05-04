@@ -22,7 +22,7 @@ class JsonViewApp extends StatelessWidget {
           child: JsonView.string(
             // '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
             '''{
-"users": { 
+"users": {
   "sammy" : {
     "username"  : "SammyShark",
     "location"  : "Indian Ocean",
@@ -80,7 +80,7 @@ class JsonViewApp extends StatelessWidget {
                 color: Colors.green,
                 size: 20,
               ),
-              seporator: Padding(
+              separator: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(
                   Icons.arrow_right_alt_outlined,
