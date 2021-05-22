@@ -4,7 +4,7 @@ import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
 class JsonView extends StatefulWidget {
   /// The constructor creates a widget
-  /// from a json string
+  /// from a json map model
   JsonView.map(
     Map<String, dynamic> map, {
     Key? key,
