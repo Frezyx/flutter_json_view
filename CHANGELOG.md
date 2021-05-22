@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Add map constructor to build widget from json objects withuot serialization
+
 ## 0.1.2
 
 * Fix naming seporator -> separator
