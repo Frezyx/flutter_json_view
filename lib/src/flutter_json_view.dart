@@ -4,18 +4,6 @@ import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
 class JsonView extends StatefulWidget {
   /// The constructor creates a widget
-  /// from a json map model
-  JsonView.map(
-    Map<String, dynamic> map, {
-    Key? key,
-    JsonViewTheme? theme,
-  })  : _builder = MapJsonViewBuilder(
-          map,
-          jsonViewTheme: theme,
-        ),
-        super(key: key);
-
-  /// The constructor creates a widget
   /// from a json string
   JsonView.string(
     String jsonString, {
@@ -38,6 +26,18 @@ class JsonView extends StatefulWidget {
     JsonViewTheme? theme,
   })  : _builder = AssetJsonViewBuilder(
           path,
+          jsonViewTheme: theme,
+        ),
+        super(key: key);
+
+  /// The constructor creates a widget
+  /// from a json map model
+  JsonView.map(
+    Map<String, dynamic> map, {
+    Key? key,
+    JsonViewTheme? theme,
+  })  : _builder = MapJsonViewBuilder(
+          map,
           jsonViewTheme: theme,
         ),
         super(key: key);

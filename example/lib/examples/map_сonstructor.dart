@@ -15,18 +15,18 @@ class JsonViewApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('flutter_json_view 0.2.0')),
+        appBar: AppBar(title: Text('flutter_json_view 0.2.1')),
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: JsonView.map(
             {
-              "author": {
-                "name": "Stas",
-                "lastName": "Ilin",
-                "githubLogin": "Frezyx",
-                "age": 19,
-                "man": true,
-                "height": 186.5
+              'author': {
+                'name': 'Stas',
+                'lastName': 'lin',
+                'githubLogin': 'Frezyx',
+                'age': 19,
+                'man': true,
+                'height': 186.5
               },
             },
           ),
