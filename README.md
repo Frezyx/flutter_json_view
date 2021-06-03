@@ -42,6 +42,12 @@ JsonView.string('{"key":"value"}'),
 JsonView.asset('assets/data.json'),
 ```
 
+#### Map constructor
+
+```dart
+JsonView.map({"key":"value"}),
+```
+
 ## Customization
 🎨 The package was created in order to be able to customize your json view
 
