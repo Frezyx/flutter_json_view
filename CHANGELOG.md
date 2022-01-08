@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Make text with the possibility of selection
+
 ## 0.2.1
 
 * Small refactoring
