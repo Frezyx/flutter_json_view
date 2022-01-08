@@ -8,7 +8,7 @@ class JsonItem extends StatelessWidget {
     Key? key,
     required this.entry,
     required this.jsonViewTheme,
-  })   : _commonBuilder = CommonJsonViewBuilder(
+  })  : _commonBuilder = CommonJsonViewBuilder(
           entry.value,
           jsonViewTheme: jsonViewTheme,
         ),
@@ -27,7 +27,7 @@ class JsonItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(entry.key, style: jsonViewTheme.keyStyle),
+              SelectableText(entry.key, style: jsonViewTheme.keyStyle),
               jsonViewTheme.separator,
             ],
           ),
@@ -38,7 +38,7 @@ class JsonItem extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        SelectableText(
           entry.key,
           style: jsonViewTheme.keyStyle,
         ),

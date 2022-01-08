@@ -15,7 +15,7 @@ class PrimitiveJsonItem extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        SelectableText(
           '$jsonObj',
           style: textStyle,
         ),
