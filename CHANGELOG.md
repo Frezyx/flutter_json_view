@@ -1,3 +1,8 @@
+## 0.3.1
+
+* Update android example to new kotlin version
+
+Thanks [codemaker2015](https://github.com/codemaker2015)
 ## 0.3.0
 
 * Make text with the possibility of selection

@@ -17,7 +17,7 @@
 
 ```yaml
 dependencies:
-  flutter_json_view: ^0.3.0
+  flutter_json_view: ^0.3.1
 ```
 
 ### Add import package
