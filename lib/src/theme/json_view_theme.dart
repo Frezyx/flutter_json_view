@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class JsonViewTheme {
   const JsonViewTheme({
-    this.keyStyle = const TextStyle(color: Colors.deepPurple),
+    this.keyStyle = const TextStyle(color: Colors.green),
     this.doubleStyle = const TextStyle(color: Colors.blue),
     this.intStyle = const TextStyle(color: Colors.blue),
     this.boolStyle = const TextStyle(color: Colors.green),
@@ -12,6 +12,7 @@ class JsonViewTheme {
     this.errorWidget = const Text('error'),
     this.separator = const Text(' : '),
     this.loadingWidget = const CircularProgressIndicator(),
+    this.backgroundColor = Colors.transparent,
   });
 
   /// Style of json Object keys name displaying
@@ -45,4 +46,7 @@ class JsonViewTheme {
   /// When loading data from a file, (web in future)
   /// this widget will be shown at the time of processing
   final Widget loadingWidget;
+
+  /// Background color of json view
+  final Color backgroundColor;
 }

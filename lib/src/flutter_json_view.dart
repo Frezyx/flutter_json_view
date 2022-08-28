@@ -9,7 +9,8 @@ class JsonView extends StatefulWidget {
     String jsonString, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = StringJsonViewBuilder(
+  })  : _theme = theme ?? const JsonViewTheme(),
+        _builder = StringJsonViewBuilder(
           jsonString,
           jsonViewTheme: theme,
         ),
@@ -24,7 +25,8 @@ class JsonView extends StatefulWidget {
     String path, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = AssetJsonViewBuilder(
+  })  : _theme = theme ?? const JsonViewTheme(),
+        _builder = AssetJsonViewBuilder(
           path,
           jsonViewTheme: theme,
         ),
@@ -36,13 +38,15 @@ class JsonView extends StatefulWidget {
     Map<String, dynamic> map, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = MapJsonViewBuilder(
+  })  : _theme = theme ?? const JsonViewTheme(),
+        _builder = MapJsonViewBuilder(
           map,
           jsonViewTheme: theme,
         ),
         super(key: key);
 
   final JsonViewBuilder _builder;
+  final JsonViewTheme _theme;
 
   @override
   _JsonViewState createState() => _JsonViewState();
@@ -51,8 +55,11 @@ class JsonView extends StatefulWidget {
 class _JsonViewState extends State<JsonView> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: widget._builder.build(),
+    return Material(
+      color: widget._theme.backgroundColor,
+      child: SingleChildScrollView(
+        child: widget._builder.build(),
+      ),
     );
   }
 }
