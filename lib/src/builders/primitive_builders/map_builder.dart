@@ -24,7 +24,7 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
+        InkWell(
           onTap: () => setState(() => isOpened = !isOpened),
           child: isOpened
               ? widget.jsonViewTheme.closeIcon
