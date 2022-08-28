@@ -7,7 +7,7 @@ class JsonListItem extends StatelessWidget {
     Key? key,
     required this.value,
     required this.jsonViewTheme,
-  })   : _commonBuilder = CommonJsonViewBuilder(
+  })  : _commonBuilder = CommonJsonViewBuilder(
           value,
           jsonViewTheme: jsonViewTheme,
         ),
