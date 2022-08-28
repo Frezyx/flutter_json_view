@@ -1,3 +1,7 @@
+## 0.4.0
+
+* Make format and fix analyser issues
+
 ## 0.3.1
 
 * Update android example to new kotlin version

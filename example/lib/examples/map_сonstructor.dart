@@ -15,7 +15,7 @@ class JsonViewApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('flutter_json_view 0.3.1')),
+        appBar: AppBar(title: Text('flutter_json_view 0.4.0')),
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: JsonView.map(
