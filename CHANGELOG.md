@@ -1,3 +1,9 @@
+## 0.5.0
+
+* Fix empty List bug
+
+Thanks [pxz8858](https://github.com/pxz8858)
+
 ## 0.4.0
 
 * Make format and fix analyser issues
