@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/builders/builders.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
+typedef PrimitiveJsonItemBuilder = Widget Function(
+    BuildContext context, dynamic jsonObj, TextStyle textStyle);
+
 class JsonView extends StatefulWidget {
+  static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
+
   /// The constructor creates a widget
   /// from a json string
   JsonView.string(

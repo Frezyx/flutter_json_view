@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../flutter_json_view.dart';
+
 class PrimitiveJsonItem extends StatelessWidget {
   const PrimitiveJsonItem({
     Key? key,
@@ -15,10 +17,11 @@ class PrimitiveJsonItem extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectableText(
-          '$jsonObj',
-          style: textStyle,
-        ),
+        JsonView.primitiveJsonItemBuilder?.call(context, jsonObj, textStyle) ??
+            SelectableText(
+              '$jsonObj',
+              style: textStyle,
+            ),
       ],
     );
   }
