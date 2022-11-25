@@ -1,3 +1,10 @@
+## 0.6.0
+
+* Implement primitiveJsonItemBuilder for custom json item UI
+
+Thanks [qcks](https://github.com/qcks)
+
+
 ## 0.5.0
 
 * Fix empty List bug
