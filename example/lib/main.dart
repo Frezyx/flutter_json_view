@@ -14,13 +14,78 @@ class JsonViewApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: Text('flutter_json_view 0.4.0')),
-        body: Padding(
-          padding: const EdgeInsets.all(10),
-          child: JsonView.string(
-            '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
-            theme: JsonViewTheme(viewType: JsonViewType.collapsible),
+      home: _HomeScreen(),
+    );
+  }
+}
+
+class _HomeScreen extends StatefulWidget {
+  const _HomeScreen({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  State<_HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<_HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(title: Text('flutter_json_view 0.6.1')),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Collapsible', style: theme.textTheme.headline5),
+              const SizedBox(height: 2),
+              JsonView.string(
+                '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
+                theme: JsonViewTheme(viewType: JsonViewType.collapsible),
+              ),
+              const SizedBox(height: 10),
+              Text('Base', style: theme.textTheme.headline5),
+              const SizedBox(height: 2),
+              JsonView.string(
+                '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
+                theme: JsonViewTheme(viewType: JsonViewType.base),
+              ),
+              const SizedBox(height: 10),
+              Text('Big data', style: theme.textTheme.headline5),
+              const SizedBox(height: 2),
+              SizedBox(
+                height: 400,
+                child: JsonView.map(
+                  {
+                    "glossary": {
+                      "title": "example glossary",
+                      "GlossDiv": {
+                        "title": "S",
+                        "GlossList": {
+                          "GlossEntry": {
+                            "ID": "SGML",
+                            "SortAs": "SGML",
+                            "GlossTerm": "Standard Generalized Markup Language",
+                            "Acronym": "SGML",
+                            "Abbrev": "ISO 8879:1986",
+                            "GlossDef": {
+                              "para":
+                                  "A meta-markup language, used to create markup languages such as DocBook.",
+                              "GlossSeeAlso": ["GML", "XML"]
+                            },
+                            "GlossSee": "markup"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  theme: JsonViewTheme(viewType: JsonViewType.base),
+                ),
+              ),
+            ],
           ),
         ),
       ),
