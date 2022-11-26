@@ -40,7 +40,7 @@ class _BaseJsonViewState extends State<BaseJsonView> {
   @override
   Widget build(BuildContext context) {
     if (widget.jsonData != null || _assetsJsonString != null) {
-      return Text(
+      return SelectableText(
         (widget.jsonData ?? _assetsJsonString)!,
         style: widget.jsonViewTheme.defaultTextStyle,
       );
