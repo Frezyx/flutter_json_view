@@ -1,3 +1,7 @@
+## 0.6.1
+
+Fix formatting issues
+
 ## 0.6.0
 
 * Implement primitiveJsonItemBuilder for custom json item UI
