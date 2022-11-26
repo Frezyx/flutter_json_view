@@ -75,7 +75,10 @@ class _JsonViewState extends State<JsonView> {
             : widget._stringData != null
                 ? _encoder.convert(json.decode(widget._stringData!))
                 : null;
-        jsonView = BaseJsonView(jsonData: jsonData);
+        jsonView = BaseJsonView(
+          jsonData: jsonData,
+          jsonViewTheme: widget._builder.jsonViewTheme,
+        );
         break;
       case JsonViewType.collapsible:
         jsonView = widget._builder.build();
@@ -84,7 +87,7 @@ class _JsonViewState extends State<JsonView> {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(10),
-      color: Colors.grey,
+      color: widget._builder.jsonViewTheme.backgroundColor,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: SingleChildScrollView(

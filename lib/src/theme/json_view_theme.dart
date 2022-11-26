@@ -7,6 +7,11 @@ enum JsonViewType {
 
 class JsonViewTheme {
   const JsonViewTheme({
+    this.defaultTextStyle = const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: Colors.white,
+    ),
     this.keyStyle = const TextStyle(color: Colors.deepPurple),
     this.doubleStyle = const TextStyle(color: Colors.blue),
     this.intStyle = const TextStyle(color: Colors.blue),
@@ -18,6 +23,7 @@ class JsonViewTheme {
     this.separator = const Text(' : '),
     this.loadingWidget = const CircularProgressIndicator(),
     this.viewType = JsonViewType.collapsible,
+    this.backgroundColor = const Color(0xFF1E1F28),
   });
 
   /// Style of json Object keys name displaying
@@ -54,4 +60,11 @@ class JsonViewTheme {
 
   /// How JsonView widget will build items
   final JsonViewType viewType;
+
+  /// Background color of JsonView
+  final Color backgroundColor;
+
+  /// This style used as default for all styles
+  /// and for not parsed values
+  final TextStyle defaultTextStyle;
 }
