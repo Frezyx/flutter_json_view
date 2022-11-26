@@ -43,7 +43,8 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
         isList: true,
         jsonViewTheme: widget.jsonViewTheme,
         count: widget.jsonObj.length,
-        type: Typer.getType(widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
+        type: Typer.getType(
+            widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
       );
     }
     return Column(
