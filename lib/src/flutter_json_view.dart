@@ -81,11 +81,16 @@ class _JsonViewState extends State<JsonView> {
         jsonView = widget._builder.build();
         break;
     }
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(10),
+      color: Colors.grey,
       child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: jsonView,
+        scrollDirection: Axis.horizontal,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: jsonView,
+        ),
       ),
     );
   }
