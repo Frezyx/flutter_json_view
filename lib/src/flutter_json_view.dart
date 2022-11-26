@@ -1,17 +1,23 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/builders/builders.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
-class JsonView extends StatefulWidget {
-  static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
+import 'widgets/base_json_view.dart';
 
+const _encoder = JsonEncoder.withIndent('  ');
+
+class JsonView extends StatefulWidget {
   /// The constructor creates a widget
   /// from a json string
   JsonView.string(
     String jsonString, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = StringJsonViewBuilder(
+  })  : _stringData = jsonString,
+        _mapData = null,
+        _builder = StringJsonViewBuilder(
           jsonString,
           jsonViewTheme: theme,
         ),
@@ -26,7 +32,9 @@ class JsonView extends StatefulWidget {
     String path, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = AssetJsonViewBuilder(
+  })  : _mapData = null,
+        _stringData = null,
+        _builder = AssetJsonViewBuilder(
           path,
           jsonViewTheme: theme,
         ),
@@ -38,13 +46,18 @@ class JsonView extends StatefulWidget {
     Map<String, dynamic> map, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = MapJsonViewBuilder(
+  })  : _mapData = map,
+        _stringData = null,
+        _builder = MapJsonViewBuilder(
           map,
           jsonViewTheme: theme,
         ),
         super(key: key);
 
+  final Map<String, dynamic>? _mapData;
+  final String? _stringData;
   final JsonViewBuilder _builder;
+  static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
 
   @override
   _JsonViewState createState() => _JsonViewState();
@@ -53,8 +66,22 @@ class JsonView extends StatefulWidget {
 class _JsonViewState extends State<JsonView> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: widget._builder.build(),
-    );
+    final viewType = widget._builder.jsonViewTheme.viewType;
+    switch (viewType) {
+      case JsonViewType.base:
+        return SingleChildScrollView(
+          child: BaseJsonView(
+            jsonData: widget._mapData != null
+                ? _encoder.convert(widget._mapData!)
+                : widget._stringData != null
+                    ? _encoder.convert(json.decode(widget._stringData!))
+                    : null,
+          ),
+        );
+      case JsonViewType.collapsible:
+        return SingleChildScrollView(
+          child: widget._builder.build(),
+        );
+    }
   }
 }

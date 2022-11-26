@@ -18,7 +18,7 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
   }
 
   @override
-  JsonViewTheme? get jsonViewTheme => _jsonViewTheme;
+  JsonViewTheme get jsonViewTheme => _jsonViewTheme;
 
   Widget _renderJsonWidgets() {
     if (jsonObj is Map<String, dynamic>) {
