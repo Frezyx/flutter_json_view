@@ -67,21 +67,26 @@ class _JsonViewState extends State<JsonView> {
   @override
   Widget build(BuildContext context) {
     final viewType = widget._builder.jsonViewTheme.viewType;
+    Widget jsonView = SizedBox();
     switch (viewType) {
       case JsonViewType.base:
-        return SingleChildScrollView(
-          child: BaseJsonView(
-            jsonData: widget._mapData != null
-                ? _encoder.convert(widget._mapData!)
-                : widget._stringData != null
-                    ? _encoder.convert(json.decode(widget._stringData!))
-                    : null,
-          ),
-        );
+        final jsonData = widget._mapData != null
+            ? _encoder.convert(widget._mapData!)
+            : widget._stringData != null
+                ? _encoder.convert(json.decode(widget._stringData!))
+                : null;
+        jsonView = BaseJsonView(jsonData: jsonData);
+        break;
       case JsonViewType.collapsible:
-        return SingleChildScrollView(
-          child: widget._builder.build(),
-        );
+        jsonView = widget._builder.build();
+        break;
     }
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: jsonView,
+      ),
+    );
   }
 }
