@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/builders/builders.dart';
 import 'package:flutter_json_view/src/builders/primitive_builders/map_builder.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
+import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class JsonItem extends StatelessWidget {
   JsonItem({
@@ -28,7 +29,7 @@ class JsonItem extends StatelessWidget {
           Row(
             children: [
               SelectableText(entry.key, style: jsonViewTheme.keyStyle),
-              jsonViewTheme.separator,
+              JsonViewSeparator(jsonViewTheme: jsonViewTheme),
             ],
           ),
           valueWidget
@@ -42,7 +43,7 @@ class JsonItem extends StatelessWidget {
           entry.key,
           style: jsonViewTheme.keyStyle,
         ),
-        jsonViewTheme.separator,
+        JsonViewSeparator(jsonViewTheme: jsonViewTheme),
         valueWidget
       ],
     );

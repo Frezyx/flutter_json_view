@@ -28,7 +28,7 @@ class JsonViewTheme {
       color: Colors.white,
     ),
     this.errorWidget = const Text('error'),
-    this.separator = const Text(' : '),
+    this.separator,
     this.loadingWidget = const CircularProgressIndicator(),
     this.viewType = JsonViewType.collapsible,
     this.backgroundColor = const Color(0xFF1E1F28),
@@ -71,7 +71,7 @@ class JsonViewTheme {
   final Widget errorWidget;
 
   /// Key and value separator widget
-  final Widget separator;
+  final Widget? separator;
 
   /// When loading data from a file, (web in future)
   /// this widget will be shown at the time of processing
