@@ -118,6 +118,16 @@ JsonView.string(
 
 **More examples you can see** [here](/example/lib/examples)
 
+<br>
+<div align="center" >
+  <p>Thanks to all contributors of this package</p>
+  <a href="https://github.com/Frezyx/group_button/graphs/flutter_json_view">
+    <img src="https://contrib.rocks/image?repo=Frezyx/flutter_json_view" />
+  </a>
+</div>
+<br>
+
+
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
