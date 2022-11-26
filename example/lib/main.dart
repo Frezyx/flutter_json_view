@@ -58,31 +58,9 @@ class _HomeScreenState extends State<_HomeScreen> {
               const SizedBox(height: 2),
               SizedBox(
                 height: 400,
-                child: JsonView.map(
-                  {
-                    "glossary": {
-                      "title": "example glossary",
-                      "GlossDiv": {
-                        "title": "S",
-                        "GlossList": {
-                          "GlossEntry": {
-                            "ID": "SGML",
-                            "SortAs": "SGML",
-                            "GlossTerm": "Standard Generalized Markup Language",
-                            "Acronym": "SGML",
-                            "Abbrev": "ISO 8879:1986",
-                            "GlossDef": {
-                              "para":
-                                  "A meta-markup language, used to create markup languages such as DocBook.",
-                              "GlossSeeAlso": ["GML", "XML"]
-                            },
-                            "GlossSee": "markup"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  theme: JsonViewTheme(viewType: JsonViewType.base),
+                child: JsonView.asset(
+                  'assets/github_user.json',
+                  theme: JsonViewTheme(viewType: JsonViewType.collapsible),
                 ),
               ),
             ],
