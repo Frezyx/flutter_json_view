@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+enum JsonViewType {
+  base,
+  collapsible,
+}
+
 class JsonViewTheme {
   const JsonViewTheme({
     this.keyStyle = const TextStyle(color: Colors.deepPurple),
@@ -12,6 +17,7 @@ class JsonViewTheme {
     this.errorWidget = const Text('error'),
     this.separator = const Text(' : '),
     this.loadingWidget = const CircularProgressIndicator(),
+    this.viewType = JsonViewType.collapsible,
   });
 
   /// Style of json Object keys name displaying
@@ -45,4 +51,7 @@ class JsonViewTheme {
   /// When loading data from a file, (web in future)
   /// this widget will be shown at the time of processing
   final Widget loadingWidget;
+
+  /// How JsonView widget will build items
+  final JsonViewType viewType;
 }
