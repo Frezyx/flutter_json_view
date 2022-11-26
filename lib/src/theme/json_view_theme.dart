@@ -12,34 +12,53 @@ class JsonViewTheme {
       fontWeight: FontWeight.w500,
       color: Colors.white,
     ),
-    this.keyStyle = const TextStyle(color: Colors.deepPurple),
-    this.doubleStyle = const TextStyle(color: Colors.blue),
-    this.intStyle = const TextStyle(color: Colors.blue),
-    this.boolStyle = const TextStyle(color: Colors.green),
-    this.stringStyle = const TextStyle(color: Colors.amber),
-    this.closeIcon = const Icon(Icons.arrow_drop_up, size: 18),
-    this.openIcon = const Icon(Icons.arrow_drop_down, size: 18),
+    TextStyle? keyStyle,
+    TextStyle? doubleStyle,
+    TextStyle? intStyle,
+    TextStyle? boolStyle,
+    TextStyle? stringStyle,
+    this.closeIcon = const Icon(
+      Icons.arrow_drop_up,
+      size: 18,
+      color: Colors.white,
+    ),
+    this.openIcon = const Icon(
+      Icons.arrow_drop_down,
+      size: 18,
+      color: Colors.white,
+    ),
     this.errorWidget = const Text('error'),
     this.separator = const Text(' : '),
     this.loadingWidget = const CircularProgressIndicator(),
     this.viewType = JsonViewType.collapsible,
     this.backgroundColor = const Color(0xFF1E1F28),
-  });
+  })  : _keyStyle = keyStyle ?? const TextStyle(color: Colors.deepPurple),
+        _doubleStyle = doubleStyle ?? const TextStyle(color: Colors.blue),
+        _intStyle = intStyle ?? const TextStyle(color: Colors.blue),
+        _boolStyle = boolStyle ?? const TextStyle(color: Colors.green),
+        _stringStyle = stringStyle ?? const TextStyle(color: Colors.amber);
 
   /// Style of json Object keys name displaying
-  final TextStyle keyStyle;
+  TextStyle get keyStyle => defaultTextStyle.merge(_keyStyle);
+
+  final TextStyle _keyStyle;
 
   /// Style of json Object [double] values displaying
-  final TextStyle doubleStyle;
+  TextStyle get doubleStyle => defaultTextStyle.merge(_doubleStyle);
+
+  final TextStyle _doubleStyle;
 
   /// Style of json Object [int] values displaying
-  final TextStyle intStyle;
+  TextStyle get intStyle => defaultTextStyle.merge(_intStyle);
+  final TextStyle _intStyle;
 
   /// Style of json Object [bool] values displaying
-  final TextStyle boolStyle;
+  TextStyle get boolStyle => defaultTextStyle.merge(_boolStyle);
+  final TextStyle _boolStyle;
 
   /// Style of json Object [String] values displaying
-  final TextStyle stringStyle;
+  TextStyle get stringStyle => defaultTextStyle.merge(_stringStyle);
+  final TextStyle _stringStyle;
 
   /// This icon is shown when the object's fields are hidden
   final Widget closeIcon;
