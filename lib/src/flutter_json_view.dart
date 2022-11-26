@@ -1,20 +1,24 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/builders/builders.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 
-typedef PrimitiveJsonItemBuilder = Widget Function(
-    BuildContext context, dynamic jsonObj, TextStyle textStyle);
+import 'widgets/base_json_view.dart';
+
+const _encoder = JsonEncoder.withIndent('  ');
 
 class JsonView extends StatefulWidget {
-  static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
-
   /// The constructor creates a widget
   /// from a json string
   JsonView.string(
     String jsonString, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = StringJsonViewBuilder(
+  })  : _stringData = jsonString,
+        _mapData = null,
+        _assetsPath = null,
+        _builder = StringJsonViewBuilder(
           jsonString,
           jsonViewTheme: theme,
         ),
@@ -29,7 +33,10 @@ class JsonView extends StatefulWidget {
     String path, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = AssetJsonViewBuilder(
+  })  : _assetsPath = path,
+        _mapData = null,
+        _stringData = null,
+        _builder = AssetJsonViewBuilder(
           path,
           jsonViewTheme: theme,
         ),
@@ -41,13 +48,20 @@ class JsonView extends StatefulWidget {
     Map<String, dynamic> map, {
     Key? key,
     JsonViewTheme? theme,
-  })  : _builder = MapJsonViewBuilder(
+  })  : _mapData = map,
+        _stringData = null,
+        _assetsPath = null,
+        _builder = MapJsonViewBuilder(
           map,
           jsonViewTheme: theme,
         ),
         super(key: key);
 
+  final Map<String, dynamic>? _mapData;
+  final String? _stringData;
+  final String? _assetsPath;
   final JsonViewBuilder _builder;
+  static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
 
   @override
   _JsonViewState createState() => _JsonViewState();
@@ -56,8 +70,36 @@ class JsonView extends StatefulWidget {
 class _JsonViewState extends State<JsonView> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: widget._builder.build(),
+    final viewType = widget._builder.jsonViewTheme.viewType;
+    Widget jsonView = SizedBox();
+    switch (viewType) {
+      case JsonViewType.base:
+        final jsonData = widget._mapData != null
+            ? _encoder.convert(widget._mapData!)
+            : widget._stringData != null
+                ? _encoder.convert(json.decode(widget._stringData!))
+                : null;
+        jsonView = BaseJsonView(
+          jsonData: jsonData,
+          assetsPath: widget._assetsPath,
+          jsonViewTheme: widget._builder.jsonViewTheme,
+        );
+        break;
+      case JsonViewType.collapsible:
+        jsonView = widget._builder.build();
+        break;
+    }
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(10),
+      color: widget._builder.jsonViewTheme.backgroundColor,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: jsonView,
+        ),
+      ),
     );
   }
 }

@@ -7,7 +7,7 @@
 </p>
 <br>
 
-| ![Image](https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/example_mov.gif?raw=true) | ![Image](https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/example1.jpg?raw=true) | ![Image](https://github.com/Frezyx/flutter_json_view/blob/main/example/repo/example3.jpg?raw=true) | 
+| ![Image](https://github.com/Frezyx/flutter_json_view/blob/f/implement-base-json-view/example/repo/new_example.gif?raw=true) | ![Image](https://github.com/Frezyx/flutter_json_view/blob/f/implement-base-json-view/example/repo/new_example2.gif?raw=true) | ![Image](https://github.com/Frezyx/flutter_json_view/blob/f/implement-base-json-view/example/repo/new_example3.gif?raw=true) | 
 | :------------: | :------------: | :------------: |
 
 
@@ -17,7 +17,7 @@
 
 ```yaml
 dependencies:
-  flutter_json_view: ^0.4.0
+  flutter_json_view: ^1.0.0
 ```
 
 ### Add import package

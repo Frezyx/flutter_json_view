@@ -1,3 +1,9 @@
+## 1.0.0
+
+- **FEAT**: Implement JsonViewType {base, collapsed}
+- **FEAT**: Implement defaultTextStyle
+- **FEAT**: Implement backgroundColor for JsonView widget
+
 ## 0.6.1
 
 Fix formatting issues

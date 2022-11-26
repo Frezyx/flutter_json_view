@@ -20,5 +20,5 @@ class StringJsonViewBuilder implements JsonViewBuilder {
   }
 
   @override
-  JsonViewTheme? get jsonViewTheme => _commonBuilder.jsonViewTheme;
+  JsonViewTheme get jsonViewTheme => _commonBuilder.jsonViewTheme;
 }
