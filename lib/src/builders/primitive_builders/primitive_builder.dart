@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../theme/json_view_theme.dart';
-import '../../widgets/widgets.dart';
+import 'package:flutter_json_view/src/theme/json_view_theme.dart';
+import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class PrimitiveBuilder extends StatelessWidget {
   const PrimitiveBuilder(this.jsonObj, {required JsonViewTheme jsonViewTheme})
@@ -36,9 +36,6 @@ class PrimitiveBuilder extends StatelessWidget {
         textStyle: _jsonViewTheme.boolStyle,
       );
     }
-    if (_jsonViewTheme.errorBuilder != null) {
-      return _jsonViewTheme.errorBuilder!(context, jsonObj);
-    }
-    return const Text('error');
+    return _jsonViewTheme.errorBuilder?.call(context, jsonObj) ?? const Text('error');
   }
 }
