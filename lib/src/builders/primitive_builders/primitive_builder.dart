@@ -11,10 +11,10 @@ class PrimitiveBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _renderJsonWidgets();
+    return _renderJsonWidgets(context);
   }
 
-  Widget _renderJsonWidgets() {
+  Widget _renderJsonWidgets(BuildContext context) {
     if (jsonObj is int) {
       return PrimitiveJsonItem(
         jsonObj: jsonObj,
@@ -36,6 +36,6 @@ class PrimitiveBuilder extends StatelessWidget {
         textStyle: _jsonViewTheme.boolStyle,
       );
     }
-    return _jsonViewTheme.errorWidget;
+    return _jsonViewTheme.errorBuilder?.call(context, jsonObj) ?? const Text('error');
   }
 }

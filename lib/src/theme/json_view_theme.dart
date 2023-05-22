@@ -5,6 +5,8 @@ enum JsonViewType {
   collapsible,
 }
 
+typedef ErrorBuilder = Widget Function(BuildContext context, Object? object);
+
 class JsonViewTheme {
   const JsonViewTheme({
     this.defaultTextStyle = const TextStyle(
@@ -28,6 +30,7 @@ class JsonViewTheme {
       color: Colors.white,
     ),
     this.errorWidget = const Text('error'),
+    this.errorBuilder,
     this.separator,
     this.loadingWidget = const CircularProgressIndicator(),
     this.viewType = JsonViewType.collapsible,
@@ -68,7 +71,13 @@ class JsonViewTheme {
 
   /// This widget will be shown at the moment
   /// when the package cannot handle the value.
+  @Deprecated('Use `errorBuilder` field.')
   final Widget errorWidget;
+
+  /// This builder will be shown at the moment
+  /// when the package cannot handle the value.
+  /// Default to const Text('error') if Null.
+  final ErrorBuilder? errorBuilder;
 
   /// Key and value separator widget
   final Widget? separator;
