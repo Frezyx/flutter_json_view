@@ -1,3 +1,10 @@
+## 1.1.0
+
+- Add ErrorBuilder method for custom error states builders
+- Make errorWidget Deprecated
+
+Thanks [qcks](https://github.com/lionnner)
+
 ## 1.0.0
 
 - **FEAT**: Implement JsonViewType {base, collapsed}
