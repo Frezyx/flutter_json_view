@@ -33,28 +33,28 @@ class _HomeScreenState extends State<_HomeScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text('flutter_json_view 1.0.0')),
+      appBar: AppBar(title: Text('flutter_json_view 1.1.0')),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Collapsible', style: theme.textTheme.headline5),
+              Text('Collapsible', style: theme.textTheme.headlineSmall),
               const SizedBox(height: 2),
               JsonView.string(
                 '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
                 theme: JsonViewTheme(viewType: JsonViewType.collapsible),
               ),
               const SizedBox(height: 10),
-              Text('Base', style: theme.textTheme.headline5),
+              Text('Base', style: theme.textTheme.headlineSmall),
               const SizedBox(height: 2),
               JsonView.string(
                 '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
                 theme: JsonViewTheme(viewType: JsonViewType.base),
               ),
               const SizedBox(height: 10),
-              Text('Big data', style: theme.textTheme.headline5),
+              Text('Big data', style: theme.textTheme.headlineSmall),
               const SizedBox(height: 2),
               SizedBox(
                 height: 400,
