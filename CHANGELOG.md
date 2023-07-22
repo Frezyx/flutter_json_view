@@ -1,3 +1,6 @@
+## 1.1.1
+- Add topics in pubspec.yaml
+
 ## 1.1.0
 
 - Add ErrorBuilder method for custom error states builders
