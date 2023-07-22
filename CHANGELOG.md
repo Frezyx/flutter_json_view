@@ -1,3 +1,6 @@
+## 1.1.2
+- Update sdk version to **'>=2.15.0 <4.0.0'**
+
 ## 1.1.1
 - Add topics in pubspec.yaml
 

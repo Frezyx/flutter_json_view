@@ -33,7 +33,7 @@ class _HomeScreenState extends State<_HomeScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text('flutter_json_view 1.1.0')),
+      appBar: AppBar(title: Text('flutter_json_view 1.1.2')),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
