@@ -45,7 +45,7 @@ class _BaseJsonViewState extends State<BaseJsonView> {
         style: widget.jsonViewTheme.defaultTextStyle,
       );
     }
-    return SizedBox();
+    return const SizedBox();
   }
 }
 

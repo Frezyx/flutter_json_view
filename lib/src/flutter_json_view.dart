@@ -64,14 +64,14 @@ class JsonView extends StatefulWidget {
   static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
 
   @override
-  _JsonViewState createState() => _JsonViewState();
+  State<JsonView> createState() => _JsonViewState();
 }
 
 class _JsonViewState extends State<JsonView> {
   @override
   Widget build(BuildContext context) {
     final viewType = widget._builder.jsonViewTheme.viewType;
-    Widget jsonView = SizedBox();
+    Widget jsonView = const SizedBox();
     switch (viewType) {
       case JsonViewType.base:
         final jsonData = widget._mapData != null
@@ -91,7 +91,7 @@ class _JsonViewState extends State<JsonView> {
     }
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       color: widget._builder.jsonViewTheme.backgroundColor,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,

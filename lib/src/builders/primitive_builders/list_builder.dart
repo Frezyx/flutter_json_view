@@ -14,7 +14,7 @@ class JsonListBuilder extends StatefulWidget {
   final JsonViewTheme jsonViewTheme;
 
   @override
-  _JsonListBuilderState createState() => _JsonListBuilderState();
+  State<JsonListBuilder> createState() => _JsonListBuilderState();
 }
 
 class _JsonListBuilderState extends State<JsonListBuilder> {

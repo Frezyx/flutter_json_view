@@ -13,7 +13,7 @@ class JsonMapBuilder extends StatefulWidget {
   final JsonViewTheme jsonViewTheme;
 
   @override
-  _JsonMapBuilderState createState() => _JsonMapBuilderState();
+  State<JsonMapBuilder> createState() => _JsonMapBuilderState();
 }
 
 class _JsonMapBuilderState extends State<JsonMapBuilder> {

@@ -13,7 +13,7 @@ class JsonLoaderItem extends StatefulWidget {
   final JsonViewTheme jsonViewTheme;
 
   @override
-  _JsonLoaderItemState createState() => _JsonLoaderItemState();
+  State<JsonLoaderItem> createState() => _JsonLoaderItemState();
 }
 
 class _JsonLoaderItemState extends State<JsonLoaderItem> {
