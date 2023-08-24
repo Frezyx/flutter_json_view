@@ -1,5 +1,5 @@
 # 1.1.3
-- Remove self linter with **flutter_lints**
+- Replace self linter with **flutter_lints**
 - Fix linter issues
 - Format files
 
