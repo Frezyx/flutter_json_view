@@ -21,7 +21,7 @@ class JsonViewApp extends StatelessWidget {
 
 class _HomeScreen extends StatefulWidget {
   const _HomeScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<_HomeScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text('flutter_json_view 1.1.2')),
+      appBar: AppBar(title: const Text('flutter_json_view 1.1.2')),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: SingleChildScrollView(
@@ -44,14 +44,14 @@ class _HomeScreenState extends State<_HomeScreen> {
               const SizedBox(height: 2),
               JsonView.string(
                 '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
-                theme: JsonViewTheme(viewType: JsonViewType.collapsible),
+                theme: const JsonViewTheme(viewType: JsonViewType.collapsible),
               ),
               const SizedBox(height: 10),
               Text('Base', style: theme.textTheme.headlineSmall),
               const SizedBox(height: 2),
               JsonView.string(
                 '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
-                theme: JsonViewTheme(viewType: JsonViewType.base),
+                theme: const JsonViewTheme(viewType: JsonViewType.base),
               ),
               const SizedBox(height: 10),
               Text('Big data', style: theme.textTheme.headlineSmall),
@@ -60,7 +60,8 @@ class _HomeScreenState extends State<_HomeScreen> {
                 height: 400,
                 child: JsonView.asset(
                   'assets/github_user.json',
-                  theme: JsonViewTheme(viewType: JsonViewType.collapsible),
+                  theme:
+                      const JsonViewTheme(viewType: JsonViewType.collapsible),
                 ),
               ),
             ],

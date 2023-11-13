@@ -1,3 +1,8 @@
+# 1.1.4
+- Update flutter lints version
+
+Thanks [knottx](https://github.com/knottx)
+
 # 1.1.3
 - Replace self linter with **flutter_lints**
 - Fix linter issues
@@ -14,7 +19,7 @@
 - Add ErrorBuilder method for custom error states builders
 - Make errorWidget Deprecated
 
-Thanks [qcks](https://github.com/lionnner)
+Thanks [lionnner](https://github.com/lionnner)
 
 ## 1.0.0
 
