@@ -28,6 +28,16 @@ class ClosedJsonObjectItem extends StatelessWidget {
             keyName ?? '',
             style: jsonViewTheme.keyStyle,
           ),
+        if (keyName == null && isList)
+          Text(
+            'Array<$type>[${count ?? 0}]',
+            style: jsonViewTheme.keyStyle,
+          ),
+        if (keyName == null && !isList)
+          Text(
+            'Object',
+            style: jsonViewTheme.keyStyle,
+          ),
       ],
     );
   }
