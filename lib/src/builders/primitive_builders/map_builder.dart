@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 import 'package:flutter_json_view/src/widgets/widgets.dart';
@@ -9,12 +7,14 @@ class JsonMapBuilder extends StatefulWidget {
       {Key? key,
       required this.jsonObj,
       required this.jsonViewTheme,
+      this.listKeyName,
       this.keyName})
       : super(key: key);
 
   final Map<String, dynamic> jsonObj;
   final JsonViewTheme jsonViewTheme;
   final String? keyName;
+  final String? listKeyName;
 
   @override
   State<JsonMapBuilder> createState() => _JsonMapBuilderState();
@@ -60,6 +60,8 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
           (e) => JsonItem(
             entry: e,
             jsonViewTheme: widget.jsonViewTheme,
+            keyName: widget.keyName,
+            listKeyName: widget.listKeyName,
           ),
         )
         .toList();

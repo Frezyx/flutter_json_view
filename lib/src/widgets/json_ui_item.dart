@@ -5,14 +5,16 @@ import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class JsonItem extends StatelessWidget {
-  JsonItem({
-    Key? key,
-    required this.entry,
-    required this.jsonViewTheme,
-  })  : _commonBuilder = CommonJsonViewBuilder(
-          entry.value,
-          jsonViewTheme: jsonViewTheme,
-        ),
+  JsonItem(
+      {Key? key,
+      required this.entry,
+      required this.jsonViewTheme,
+      String? keyName,
+      String? listKeyName})
+      : _commonBuilder = CommonJsonViewBuilder(entry.value,
+            jsonViewTheme: jsonViewTheme,
+            keyName: keyName,
+            listKeyName: listKeyName),
         super(key: key);
 
   final MapEntry<String, dynamic> entry;

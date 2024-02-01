@@ -4,16 +4,18 @@ import 'package:flutter_json_view/src/utils/typer.dart';
 import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class JsonListBuilder extends StatefulWidget {
-  const JsonListBuilder({
-    Key? key,
-    required this.jsonObj,
-    required this.jsonViewTheme,
-    this.keyName,
-  }) : super(key: key);
+  const JsonListBuilder(
+      {Key? key,
+      required this.jsonObj,
+      required this.jsonViewTheme,
+      this.keyName,
+      this.listKeyName})
+      : super(key: key);
 
   final List jsonObj;
   final JsonViewTheme jsonViewTheme;
   final String? keyName;
+  final String? listKeyName;
 
   @override
   State<JsonListBuilder> createState() => _JsonListBuilderState();
@@ -45,7 +47,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
         isList: true,
         jsonViewTheme: widget.jsonViewTheme,
         count: widget.jsonObj.length,
-        keyName: widget.keyName,
+        keyName: widget.listKeyName,
         type: Typer.getType(
             widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
       );
@@ -62,6 +64,8 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
           (e) => JsonListItem(
             value: e,
             jsonViewTheme: widget.jsonViewTheme,
+            keyName: widget.keyName,
+            listKeyName: widget.listKeyName,
           ),
         )
         .toList();

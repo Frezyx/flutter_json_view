@@ -7,11 +7,11 @@ import 'primitive_builders/primitive_builder.dart';
 
 class CommonJsonViewBuilder implements JsonViewBuilder {
   CommonJsonViewBuilder(this.jsonObj,
-      {String? keyName2,
+      {String? keyName,
       String? listKeyName,
       required JsonViewTheme jsonViewTheme})
       : _jsonViewTheme = jsonViewTheme,
-        _keyName = keyName2,
+        _keyName = keyName,
         _listKeyName = listKeyName;
 
   final dynamic jsonObj;
@@ -32,12 +32,14 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
         jsonObj: jsonObj as Map<String, dynamic>,
         jsonViewTheme: _jsonViewTheme,
         keyName: _keyName,
+        listKeyName: _listKeyName,
       );
     } else if (jsonObj is List) {
       return JsonListBuilder(
         jsonObj: jsonObj as List,
         jsonViewTheme: _jsonViewTheme,
-        keyName: listKeyName,
+        keyName: _keyName,
+        listKeyName: _listKeyName,
       );
     }
     return PrimitiveBuilder(

@@ -36,7 +36,7 @@ class _JsonLoaderItemState extends State<JsonLoaderItem> {
     final json = await AssetLoader.getAssetJson(widget.path);
     setState(() {
       _commonBuilder = CommonJsonViewBuilder(json,
-          jsonViewTheme: widget.jsonViewTheme, keyName2: widget.keyName);
+          jsonViewTheme: widget.jsonViewTheme, keyName: widget.keyName);
     });
   }
 }
