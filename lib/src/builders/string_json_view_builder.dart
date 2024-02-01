@@ -21,4 +21,12 @@ class StringJsonViewBuilder implements JsonViewBuilder {
 
   @override
   JsonViewTheme get jsonViewTheme => _commonBuilder.jsonViewTheme;
+
+  @override
+  // TODO: implement keyName
+  String? get keyName => throw UnimplementedError();
+
+  @override
+  // TODO: implement listKeyName
+  String? get listKeyName => throw UnimplementedError();
 }

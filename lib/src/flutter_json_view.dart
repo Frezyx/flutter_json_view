@@ -13,6 +13,8 @@ class JsonView extends StatefulWidget {
   /// from a json string
   JsonView.string(
     String jsonString, {
+    String? keyName,
+    String? listKeyName,
     Key? key,
     JsonViewTheme? theme,
   })  : _stringData = jsonString,
@@ -32,6 +34,8 @@ class JsonView extends StatefulWidget {
   JsonView.asset(
     String path, {
     Key? key,
+    String? keyName,
+    String? listKeyName,
     JsonViewTheme? theme,
   })  : _assetsPath = path,
         _mapData = null,
@@ -39,6 +43,7 @@ class JsonView extends StatefulWidget {
         _builder = AssetJsonViewBuilder(
           path,
           jsonViewTheme: theme,
+          keyName: keyName,
         ),
         super(key: key);
 
@@ -47,12 +52,16 @@ class JsonView extends StatefulWidget {
   JsonView.map(
     Map<String, dynamic> map, {
     Key? key,
+    String? keyName,
+    String? listKeyName,
     JsonViewTheme? theme,
   })  : _mapData = map,
         _stringData = null,
         _assetsPath = null,
         _builder = MapJsonViewBuilder(
           map,
+          keyName: keyName,
+          listKeyName: listKeyName,
           jsonViewTheme: theme,
         ),
         super(key: key);
@@ -62,7 +71,6 @@ class JsonView extends StatefulWidget {
   final String? _assetsPath;
   final JsonViewBuilder _builder;
   static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
-
   @override
   State<JsonView> createState() => _JsonViewState();
 }

@@ -1,16 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class JsonMapBuilder extends StatefulWidget {
-  const JsonMapBuilder({
-    Key? key,
-    required this.jsonObj,
-    required this.jsonViewTheme,
-  }) : super(key: key);
+  const JsonMapBuilder(
+      {Key? key,
+      required this.jsonObj,
+      required this.jsonViewTheme,
+      this.keyName})
+      : super(key: key);
 
   final Map<String, dynamic> jsonObj;
   final JsonViewTheme jsonViewTheme;
+  final String? keyName;
 
   @override
   State<JsonMapBuilder> createState() => _JsonMapBuilderState();
@@ -39,8 +43,8 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
     if (!isOpened) {
       return ClosedJsonObjectItem(
         isList: false,
+        keyName: widget.keyName,
         jsonViewTheme: widget.jsonViewTheme,
-        type: 'Object',
       );
     }
     final items = _buildJsonItems();

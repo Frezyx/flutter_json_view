@@ -29,6 +29,8 @@ class JsonViewApp extends StatelessWidget {
                 'height': 186.5
               },
             },
+            keyName: '{...}',
+            listKeyName: '[...]',
           ),
         ),
       ),

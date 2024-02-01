@@ -8,10 +8,12 @@ class JsonListBuilder extends StatefulWidget {
     Key? key,
     required this.jsonObj,
     required this.jsonViewTheme,
+    this.keyName,
   }) : super(key: key);
 
   final List jsonObj;
   final JsonViewTheme jsonViewTheme;
+  final String? keyName;
 
   @override
   State<JsonListBuilder> createState() => _JsonListBuilderState();
@@ -43,6 +45,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
         isList: true,
         jsonViewTheme: widget.jsonViewTheme,
         count: widget.jsonObj.length,
+        keyName: widget.keyName,
         type: Typer.getType(
             widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
       );
