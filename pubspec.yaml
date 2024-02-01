@@ -22,4 +22,3 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lakos: ^2.0.3

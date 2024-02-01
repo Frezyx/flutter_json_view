@@ -23,6 +23,8 @@ class JsonView extends StatefulWidget {
         _builder = StringJsonViewBuilder(
           jsonString,
           jsonViewTheme: theme,
+          keyName: keyName,
+          listKeyName: listKeyName,
         ),
         super(key: key);
 
