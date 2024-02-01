@@ -52,9 +52,11 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
             widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
       );
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: items,
+    return SelectionArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: items,
+      ),
     );
   }
 
