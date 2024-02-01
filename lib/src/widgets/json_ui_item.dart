@@ -30,7 +30,7 @@ class JsonItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              SelectableText(entry.key, style: jsonViewTheme.keyStyle),
+              Text(entry.key, style: jsonViewTheme.keyStyle),
               JsonViewSeparator(jsonViewTheme: jsonViewTheme),
             ],
           ),
@@ -38,10 +38,11 @@ class JsonItem extends StatelessWidget {
         ],
       );
     }
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectableText(
+        Text(
           entry.key,
           style: jsonViewTheme.keyStyle,
         ),

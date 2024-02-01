@@ -27,17 +27,17 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
   @override
   Widget build(BuildContext context) {
     final items = _buildJsonItems();
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
+    return GestureDetector(
+      onTap: () => setState(() => isOpened = !isOpened),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          isOpened
               ? widget.jsonViewTheme.closeIcon
               : widget.jsonViewTheme.openIcon,
-        ),
-        _buildItem(items),
-      ],
+          _buildItem(items),
+        ],
+      ),
     );
   }
 

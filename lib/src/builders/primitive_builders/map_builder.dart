@@ -25,17 +25,17 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
+    return GestureDetector(
+      onTap: () => setState(() => isOpened = !isOpened),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          isOpened
               ? widget.jsonViewTheme.closeIcon
               : widget.jsonViewTheme.openIcon,
-        ),
-        _buidItem(),
-      ],
+          _buidItem(),
+        ],
+      ),
     );
   }
 
@@ -48,9 +48,12 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
       );
     }
     final items = _buildJsonItems();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: items,
+    return SelectionArea(
+      focusNode: FocusNode(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: items,
+      ),
     );
   }
 
