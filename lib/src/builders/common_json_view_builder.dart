@@ -7,8 +7,8 @@ import 'primitive_builders/primitive_builder.dart';
 
 class CommonJsonViewBuilder implements JsonViewBuilder {
   CommonJsonViewBuilder(this.jsonObj,
-      {String? keyName,
-      String? listKeyName,
+      {String? keyName = '',
+      String? listKeyName = '',
       required JsonViewTheme jsonViewTheme})
       : _jsonViewTheme = jsonViewTheme,
         _keyName = keyName,
