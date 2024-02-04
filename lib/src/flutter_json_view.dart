@@ -11,6 +11,8 @@ const _encoder = JsonEncoder.withIndent('  ');
 class JsonView extends StatefulWidget {
   /// The constructor creates a widget
   /// from a json string
+  /// in [listKeyName] if it's empty the default value is Array<$type>[${count ?? 0}].
+  /// in [listKeyName] if it's empty the default value is Object
   JsonView.string(
     String jsonString, {
     String? keyName,
