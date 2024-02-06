@@ -3,14 +3,18 @@ import 'package:flutter_json_view/src/theme/json_view_theme.dart';
 import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class JsonMapBuilder extends StatefulWidget {
-  const JsonMapBuilder({
-    Key? key,
-    required this.jsonObj,
-    required this.jsonViewTheme,
-  }) : super(key: key);
+  const JsonMapBuilder(
+      {Key? key,
+      required this.jsonObj,
+      required this.jsonViewTheme,
+      this.listKeyName,
+      this.keyName})
+      : super(key: key);
 
   final Map<String, dynamic> jsonObj;
   final JsonViewTheme jsonViewTheme;
+  final String? keyName;
+  final String? listKeyName;
 
   @override
   State<JsonMapBuilder> createState() => _JsonMapBuilderState();
@@ -21,17 +25,17 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
+    return GestureDetector(
+      onTap: () => setState(() => isOpened = !isOpened),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          isOpened
               ? widget.jsonViewTheme.closeIcon
               : widget.jsonViewTheme.openIcon,
-        ),
-        _buidItem(),
-      ],
+          _buidItem(),
+        ],
+      ),
     );
   }
 
@@ -39,14 +43,17 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
     if (!isOpened) {
       return ClosedJsonObjectItem(
         isList: false,
+        keyName: widget.keyName,
         jsonViewTheme: widget.jsonViewTheme,
-        type: 'Object',
       );
     }
     final items = _buildJsonItems();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: items,
+    return SelectionArea(
+      focusNode: FocusNode(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: items,
+      ),
     );
   }
 
@@ -56,6 +63,8 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
           (e) => JsonItem(
             entry: e,
             jsonViewTheme: widget.jsonViewTheme,
+            keyName: widget.keyName,
+            listKeyName: widget.listKeyName,
           ),
         )
         .toList();

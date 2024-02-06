@@ -21,12 +21,12 @@ class JsonViewTheme {
     TextStyle? stringStyle,
     this.closeIcon = const Icon(
       Icons.arrow_drop_up,
-      size: 18,
+      size: 22,
       color: Colors.white,
     ),
     this.openIcon = const Icon(
       Icons.arrow_drop_down,
-      size: 18,
+      size: 22,
       color: Colors.white,
     ),
     this.errorWidget = const Text('error'),

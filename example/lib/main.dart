@@ -60,6 +60,8 @@ class _HomeScreenState extends State<_HomeScreen> {
                 height: 400,
                 child: JsonView.asset(
                   'assets/github_user.json',
+                  keyName: '{...}',
+                  listKeyName: '[...]',
                   theme:
                       const JsonViewTheme(viewType: JsonViewType.collapsible),
                 ),

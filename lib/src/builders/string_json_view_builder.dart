@@ -5,14 +5,21 @@ import 'package:flutter_json_view/src/utils/utils.dart';
 import 'builders.dart';
 
 class StringJsonViewBuilder implements JsonViewBuilder {
-  StringJsonViewBuilder(this.jsonString, {JsonViewTheme? jsonViewTheme})
+  StringJsonViewBuilder(this.jsonString,
+      {JsonViewTheme? jsonViewTheme, String? keyName, String? listKeyName})
       : _commonBuilder = CommonJsonViewBuilder(
           JsonConverter.jsonStringToObject(jsonString),
           jsonViewTheme: jsonViewTheme ?? const JsonViewTheme(),
-        );
+          keyName: keyName,
+          listKeyName: listKeyName,
+        ),
+        _keyName = keyName,
+        _listKeyName = listKeyName;
 
   final String jsonString;
   final JsonViewBuilder _commonBuilder;
+  final String? _keyName;
+  final String? _listKeyName;
 
   @override
   Widget build() {
@@ -21,4 +28,10 @@ class StringJsonViewBuilder implements JsonViewBuilder {
 
   @override
   JsonViewTheme get jsonViewTheme => _commonBuilder.jsonViewTheme;
+
+  @override
+  String? get keyName => _keyName;
+
+  @override
+  String? get listKeyName => _listKeyName;
 }

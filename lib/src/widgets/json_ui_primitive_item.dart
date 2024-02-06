@@ -18,7 +18,7 @@ class PrimitiveJsonItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         JsonView.primitiveJsonItemBuilder?.call(context, jsonObj, textStyle) ??
-            SelectableText(
+            Text(
               '$jsonObj',
               style: textStyle,
             ),
