@@ -35,6 +35,8 @@ class JsonViewTheme {
     this.loadingWidget = const CircularProgressIndicator(),
     this.viewType = JsonViewType.collapsible,
     this.backgroundColor = const Color(0xFF1E1F28),
+    this.listInitialExpanded = true,
+    this.mapInitialExpanded = true,
   })  : _keyStyle = keyStyle ?? const TextStyle(color: Colors.deepPurple),
         _doubleStyle = doubleStyle ?? const TextStyle(color: Colors.blue),
         _intStyle = intStyle ?? const TextStyle(color: Colors.blue),
@@ -95,4 +97,12 @@ class JsonViewTheme {
   /// This style used as default for all styles
   /// and for not parsed values
   final TextStyle defaultTextStyle;
+
+  /// Set if the lists should show
+  /// collapsed or expanded on its first render.
+  final bool listInitialExpanded;
+
+  /// Set if the maps should show
+  /// collapsed or expanded on its first render.
+  final bool mapInitialExpanded;
 }
