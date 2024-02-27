@@ -4,11 +4,7 @@ import 'package:flutter_json_view/src/utils/typer.dart';
 import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class JsonListBuilder extends StatefulWidget {
-  const JsonListBuilder({
-    Key? key,
-    required this.jsonObj,
-    required this.jsonViewTheme,
-  }) : super(key: key);
+  const JsonListBuilder({Key? key, required this.jsonObj, required this.jsonViewTheme}) : super(key: key);
 
   final List jsonObj;
   final JsonViewTheme jsonViewTheme;
@@ -18,7 +14,13 @@ class JsonListBuilder extends StatefulWidget {
 }
 
 class _JsonListBuilderState extends State<JsonListBuilder> {
-  bool isOpened = true;
+  late bool isOpened;
+
+  @override
+  void initState() {
+    isOpened = widget.jsonViewTheme.listInitialExpanded;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +30,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
       children: [
         GestureDetector(
           onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
-              ? widget.jsonViewTheme.closeIcon
-              : widget.jsonViewTheme.openIcon,
+          child: isOpened ? widget.jsonViewTheme.closeIcon : widget.jsonViewTheme.openIcon,
         ),
         _buildItem(items),
       ],
@@ -43,8 +43,7 @@ class _JsonListBuilderState extends State<JsonListBuilder> {
         isList: true,
         jsonViewTheme: widget.jsonViewTheme,
         count: widget.jsonObj.length,
-        type: Typer.getType(
-            widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
+        type: Typer.getType(widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
       );
     }
     return Column(
