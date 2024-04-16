@@ -45,6 +45,7 @@ class _HomeScreenState extends State<_HomeScreen> {
               JsonView.string(
                 '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
                 theme: const JsonViewTheme(viewType: JsonViewType.collapsible),
+                onError: const Text("Failed to parse String"),
               ),
               const SizedBox(height: 10),
               Text('Base', style: theme.textTheme.headlineSmall),
@@ -52,6 +53,7 @@ class _HomeScreenState extends State<_HomeScreen> {
               JsonView.string(
                 '{"author":{"name": "Stas", "lastName": "Ilin", "githubLogin": "Frezyx", "age": 19, "man": true, "height": 186.5}}',
                 theme: const JsonViewTheme(viewType: JsonViewType.base),
+                onError: const Text("Failed to parse String"),
               ),
               const SizedBox(height: 10),
               Text('Big data', style: theme.textTheme.headlineSmall),
@@ -62,6 +64,7 @@ class _HomeScreenState extends State<_HomeScreen> {
                   'assets/github_user.json',
                   theme:
                       const JsonViewTheme(viewType: JsonViewType.collapsible),
+                  onError: const Text("Failed to parse JSON"),
                 ),
               ),
             ],

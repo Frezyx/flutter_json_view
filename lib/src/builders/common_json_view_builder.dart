@@ -10,6 +10,7 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
       : _jsonViewTheme = jsonViewTheme;
 
   final dynamic jsonObj;
+
   final JsonViewTheme _jsonViewTheme;
 
   @override
@@ -31,7 +32,10 @@ class CommonJsonViewBuilder implements JsonViewBuilder {
         jsonObj: jsonObj as List,
         jsonViewTheme: _jsonViewTheme,
       );
+    } else if (jsonObj is Widget) {
+      return jsonObj;
     }
+    ;
     return PrimitiveBuilder(
       jsonObj,
       jsonViewTheme: _jsonViewTheme,

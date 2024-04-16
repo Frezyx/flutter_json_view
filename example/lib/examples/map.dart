@@ -29,6 +29,7 @@ class JsonViewApp extends StatelessWidget {
                 'height': 186.5
               },
             },
+            onError: Text("Failed to parse map"),
           ),
         ),
       ),

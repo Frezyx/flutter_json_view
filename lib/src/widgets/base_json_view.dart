@@ -9,10 +9,12 @@ class BaseJsonView extends StatefulWidget {
     Key? key,
     required this.jsonViewTheme,
     this.jsonData,
+    required this.onError,
     this.assetsPath,
   }) : super(key: key);
 
   final String? jsonData;
+  final Widget onError;
   final JsonViewTheme jsonViewTheme;
   final String? assetsPath;
 
@@ -31,7 +33,8 @@ class _BaseJsonViewState extends State<BaseJsonView> {
 
   Future<void> _loadAssetsJson() async {
     if (widget.assetsPath != null) {
-      final json = await AssetLoader.getAssetJson(widget.assetsPath!);
+      final json =
+          await AssetLoader.getAssetJson(widget.assetsPath!, widget.onError);
       _assetsJsonString = _encoder.convert(json);
       setState(() {});
     }
