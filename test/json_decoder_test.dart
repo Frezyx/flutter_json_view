@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_json_view/src/utils/utils.dart';
@@ -75,8 +76,9 @@ void convertMapTest(int index, String jsonString, {bool valid = true}) {
   test(
     'Test jsonStringToObject Map #$index',
     () {
-      final isMap =
-          JsonConverter.jsonStringToObject(jsonString) is Map<String, dynamic>;
+      final isMap = JsonConverter.jsonStringToObject(
+              jsonString, const Text("Failed to process string"))
+          is Map<String, dynamic>;
       expect(isMap, valid);
     },
   );
@@ -86,7 +88,8 @@ void convertListTest(int index, String jsonString, {bool valid = true}) {
   test(
     'Test jsonStringToObject List #$index',
     () {
-      final isMap = JsonConverter.jsonStringToObject(jsonString) is List;
+      final isMap = JsonConverter.jsonStringToObject(
+          jsonString, const Text("Failed to process List")) is List;
       expect(isMap, valid);
     },
   );

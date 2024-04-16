@@ -7,10 +7,12 @@ class JsonLoaderItem extends StatefulWidget {
   const JsonLoaderItem({
     Key? key,
     required this.path,
+    required this.onError,
     required this.jsonViewTheme,
   }) : super(key: key);
   final String path;
   final JsonViewTheme jsonViewTheme;
+  final Widget onError;
 
   @override
   State<JsonLoaderItem> createState() => _JsonLoaderItemState();
@@ -31,7 +33,7 @@ class _JsonLoaderItemState extends State<JsonLoaderItem> {
   }
 
   Future<void> _initializeBuilder() async {
-    final json = await AssetLoader.getAssetJson(widget.path);
+    final json = await AssetLoader.getAssetJson(widget.path, widget.onError);
     setState(() {
       _commonBuilder = CommonJsonViewBuilder(
         json,

@@ -14,12 +14,15 @@ class JsonView extends StatefulWidget {
   JsonView.string(
     String jsonString, {
     Key? key,
+    required Widget onError,
     JsonViewTheme? theme,
   })  : _stringData = jsonString,
         _mapData = null,
         _assetsPath = null,
+        _onError = onError,
         _builder = StringJsonViewBuilder(
           jsonString,
+          onError,
           jsonViewTheme: theme,
         ),
         super(key: key);
@@ -32,12 +35,15 @@ class JsonView extends StatefulWidget {
   JsonView.asset(
     String path, {
     Key? key,
+    required Widget onError,
     JsonViewTheme? theme,
   })  : _assetsPath = path,
         _mapData = null,
         _stringData = null,
+        _onError = onError,
         _builder = AssetJsonViewBuilder(
           path,
+          onError,
           jsonViewTheme: theme,
         ),
         super(key: key);
@@ -47,12 +53,15 @@ class JsonView extends StatefulWidget {
   JsonView.map(
     Map<String, dynamic> map, {
     Key? key,
+    required Widget onError,
     JsonViewTheme? theme,
   })  : _mapData = map,
         _stringData = null,
         _assetsPath = null,
+        _onError = onError,
         _builder = MapJsonViewBuilder(
           map,
+          onError,
           jsonViewTheme: theme,
         ),
         super(key: key);
@@ -60,6 +69,7 @@ class JsonView extends StatefulWidget {
   final Map<String, dynamic>? _mapData;
   final String? _stringData;
   final String? _assetsPath;
+  final Widget _onError;
   final JsonViewBuilder _builder;
   static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
 
@@ -82,6 +92,7 @@ class _JsonViewState extends State<JsonView> {
         jsonView = BaseJsonView(
           jsonData: jsonData,
           assetsPath: widget._assetsPath,
+          onError: widget._onError,
           jsonViewTheme: widget._builder.jsonViewTheme,
         );
         break;

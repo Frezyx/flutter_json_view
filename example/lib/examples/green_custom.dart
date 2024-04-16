@@ -89,6 +89,7 @@ class JsonViewApp extends StatelessWidget {
                 ),
               ),
             ),
+            onError: const Text("Failed to parse String"),
           ),
         ),
       ),

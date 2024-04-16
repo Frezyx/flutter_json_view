@@ -36,6 +36,7 @@ class JsonViewApp extends StatelessWidget {
                 color: Colors.purple,
               ),
             ),
+            onError: const Text("Failed to parse String"),
           ),
         ),
       ),
