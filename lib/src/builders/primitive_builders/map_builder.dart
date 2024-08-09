@@ -7,8 +7,10 @@ class JsonMapBuilder extends StatefulWidget {
     Key? key,
     required this.jsonObj,
     required this.jsonViewTheme,
+    this.jsonKey,
   }) : super(key: key);
 
+  final String? jsonKey;
   final Map<String, dynamic> jsonObj;
   final JsonViewTheme jsonViewTheme;
 
@@ -19,31 +21,64 @@ class JsonMapBuilder extends StatefulWidget {
 class _JsonMapBuilderState extends State<JsonMapBuilder> {
   bool isOpened = true;
 
+  Widget buildObjectKey() {
+    if (widget.jsonKey != null) {
+      return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SelectableText(widget.jsonKey!, style: widget.jsonViewTheme.keyStyle),
+        JsonViewSeparator(jsonViewTheme: widget.jsonViewTheme)
+      ]);
+    }
+    return Container();
+  }
+
+  collapse() {
+    setState(() => isOpened = !isOpened);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
-          onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
-              ? widget.jsonViewTheme.closeIcon
-              : widget.jsonViewTheme.openIcon,
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: collapse,
+              child: isOpened
+                  ? widget.jsonViewTheme.closeIcon
+                  : widget.jsonViewTheme.openIcon,
+            ),
+            buildObjectKey(),
+            Text(" {", style: widget.jsonViewTheme.keyStyle),
+          ],
         ),
-        _buidItem(),
+        Padding(
+          padding: EdgeInsets.only(
+              left: widget.jsonViewTheme.defaultTextStyle.fontSize!),
+          child: _buildItems(),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+              left: widget.jsonViewTheme.defaultTextStyle.fontSize!),
+          child: Text(" }", style: widget.jsonViewTheme.keyStyle),
+        ),
+
       ],
     );
   }
 
-  Widget _buidItem() {
+  Widget _buildItems() {
+    final items = _buildJsonItems();
     if (!isOpened) {
       return ClosedJsonObjectItem(
         isList: false,
         jsonViewTheme: widget.jsonViewTheme,
         type: 'Object',
+        count: items.length,
       );
     }
-    final items = _buildJsonItems();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: items,
