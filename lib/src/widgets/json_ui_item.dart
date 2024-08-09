@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/builders/builders.dart';
-import 'package:flutter_json_view/src/builders/primitive_builders/map_builder.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
-import 'package:flutter_json_view/src/widgets/widgets.dart';
 
-class JsonItem extends StatelessWidget {
+class JsonItem extends StatefulWidget {
   JsonItem({
     Key? key,
     required this.entry,
@@ -12,6 +10,7 @@ class JsonItem extends StatelessWidget {
   })  : _commonBuilder = CommonJsonViewBuilder(
           entry.value,
           jsonViewTheme: jsonViewTheme,
+          jsonKey:entry.key,
         ),
         super(key: key);
 
@@ -20,32 +19,16 @@ class JsonItem extends StatelessWidget {
   final CommonJsonViewBuilder _commonBuilder;
 
   @override
+  State<JsonItem> createState() => _JsonItemState();
+}
+
+class _JsonItemState extends State<JsonItem> {
+  bool isOpened = true;
+
+  @override
   Widget build(BuildContext context) {
-    final valueWidget = _commonBuilder.build();
-    if (valueWidget is JsonMapBuilder) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              SelectableText(entry.key, style: jsonViewTheme.keyStyle),
-              JsonViewSeparator(jsonViewTheme: jsonViewTheme),
-            ],
-          ),
-          valueWidget
-        ],
-      );
-    }
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SelectableText(
-          entry.key,
-          style: jsonViewTheme.keyStyle,
-        ),
-        JsonViewSeparator(jsonViewTheme: jsonViewTheme),
-        valueWidget
-      ],
-    );
+    final valueWidget = widget._commonBuilder.build();
+    return valueWidget;
   }
+
 }

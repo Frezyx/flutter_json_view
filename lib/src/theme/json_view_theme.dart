@@ -18,14 +18,15 @@ class JsonViewTheme {
     TextStyle? doubleStyle,
     TextStyle? intStyle,
     TextStyle? boolStyle,
+    TextStyle? nullStyle,
     TextStyle? stringStyle,
     this.closeIcon = const Icon(
-      Icons.arrow_drop_up,
+      Icons.keyboard_arrow_down,
       size: 18,
       color: Colors.white,
     ),
     this.openIcon = const Icon(
-      Icons.arrow_drop_down,
+      Icons.chevron_right,
       size: 18,
       color: Colors.white,
     ),
@@ -39,6 +40,7 @@ class JsonViewTheme {
         _doubleStyle = doubleStyle ?? const TextStyle(color: Colors.blue),
         _intStyle = intStyle ?? const TextStyle(color: Colors.blue),
         _boolStyle = boolStyle ?? const TextStyle(color: Colors.green),
+        _nullStyle = nullStyle ?? const TextStyle(color: Colors.green),
         _stringStyle = stringStyle ?? const TextStyle(color: Colors.amber);
 
   /// Style of json Object keys name displaying
@@ -58,6 +60,10 @@ class JsonViewTheme {
   /// Style of json Object [bool] values displaying
   TextStyle get boolStyle => defaultTextStyle.merge(_boolStyle);
   final TextStyle _boolStyle;
+
+  /// Style of json Object [null] values displaying
+  TextStyle get nullStyle => defaultTextStyle.merge(_nullStyle);
+  final TextStyle _nullStyle;
 
   /// Style of json Object [String] values displaying
   TextStyle get stringStyle => defaultTextStyle.merge(_stringStyle);

@@ -8,43 +8,80 @@ class JsonListBuilder extends StatefulWidget {
     Key? key,
     required this.jsonObj,
     required this.jsonViewTheme,
+    this.objKey,
   }) : super(key: key);
 
+  final String? objKey;
   final List jsonObj;
   final JsonViewTheme jsonViewTheme;
 
   @override
-  State<JsonListBuilder> createState() => _JsonListBuilderState();
+  State<JsonListBuilder> createState() => JsonListBuilderState();
 }
 
-class _JsonListBuilderState extends State<JsonListBuilder> {
+class JsonListBuilderState extends State<JsonListBuilder> {
   bool isOpened = true;
+
+  collapse() {
+    setState(() => isOpened = !isOpened);
+  }
+
+  Widget buildObjectKey() {
+    if (widget.objKey != null) {
+      return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SelectableText(widget.objKey!, style: widget.jsonViewTheme.keyStyle),
+        JsonViewSeparator(jsonViewTheme: widget.jsonViewTheme)
+      ]);
+    }
+    return Container();
+  }
 
   @override
   Widget build(BuildContext context) {
     final items = _buildJsonItems();
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
-          onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
-              ? widget.jsonViewTheme.closeIcon
-              : widget.jsonViewTheme.openIcon,
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: collapse,
+              child: isOpened
+                  ? widget.jsonViewTheme.closeIcon
+                  : widget.jsonViewTheme.openIcon,
+            ),
+            buildObjectKey(),
+            Text(" [", style: widget.jsonViewTheme.keyStyle),
+          ],
         ),
-        _buildItem(items),
+        Padding(
+          padding: EdgeInsets.only(
+              left: widget.jsonViewTheme.defaultTextStyle.fontSize!),
+          child: _buildItem(items),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+              left: widget.jsonViewTheme.defaultTextStyle.fontSize!),
+          child: Text(" ]", style: widget.jsonViewTheme.keyStyle),
+        ),
+
       ],
     );
   }
 
   Widget _buildItem(List<Widget> items) {
     if (!isOpened) {
-      return ClosedJsonObjectItem(
-        isList: true,
-        jsonViewTheme: widget.jsonViewTheme,
-        count: widget.jsonObj.length,
-        type: Typer.getType(
-            widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
+      return Padding(
+        padding: EdgeInsets.only(
+            left: widget.jsonViewTheme.defaultTextStyle.fontSize!),
+        child: ClosedJsonObjectItem(
+          isList: true,
+          jsonViewTheme: widget.jsonViewTheme,
+          count: widget.jsonObj.length,
+          type: Typer.getType(
+              widget.jsonObj.isNotEmpty ? widget.jsonObj.first : null),
+        ),
       );
     }
     return Column(

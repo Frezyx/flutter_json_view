@@ -7,15 +7,37 @@ class PrimitiveBuilder extends StatelessWidget {
     this.jsonObj, {
     Key? key,
     required JsonViewTheme jsonViewTheme,
+    this.jsonKey,
   })  : _jsonViewTheme = jsonViewTheme,
         super(key: key);
 
+  final String? jsonKey;
   final dynamic jsonObj;
   final JsonViewTheme _jsonViewTheme;
 
+  Widget buildObjectKey() {
+    if (jsonKey != null) {
+      return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SelectableText(jsonKey!, style: _jsonViewTheme.keyStyle),
+        JsonViewSeparator(jsonViewTheme: _jsonViewTheme)
+      ]);
+    }
+    return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return _renderJsonWidgets(context);
+    return Padding(
+        padding: EdgeInsets.only(
+            left: _jsonViewTheme.defaultTextStyle.fontSize!),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          buildObjectKey(),
+          _renderJsonWidgets(context)
+        ],
+      ),
+    );
   }
 
   Widget _renderJsonWidgets(BuildContext context) {
@@ -35,6 +57,11 @@ class PrimitiveBuilder extends StatelessWidget {
         textStyle: _jsonViewTheme.stringStyle,
       );
     } else if (jsonObj is bool) {
+      return PrimitiveJsonItem(
+        jsonObj: jsonObj,
+        textStyle: _jsonViewTheme.boolStyle,
+      );
+    } else if (jsonObj == null) {
       return PrimitiveJsonItem(
         jsonObj: jsonObj,
         textStyle: _jsonViewTheme.boolStyle,

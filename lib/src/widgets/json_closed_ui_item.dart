@@ -37,7 +37,7 @@ class ClosedJsonObjectItem extends StatelessWidget {
           ),
         if (!isList)
           Text(
-            'Object',
+            'Object(${count ?? 0})',
             style: jsonViewTheme.keyStyle,
           ),
       ],
