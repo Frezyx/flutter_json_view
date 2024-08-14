@@ -1,3 +1,8 @@
+# 1.1.5
+- Move flutter_lints to dev_dependencies
+
+Thanks [hpoul](https://github.com/hpoul)
+
 # 1.1.4
 - Update flutter lints version
 
