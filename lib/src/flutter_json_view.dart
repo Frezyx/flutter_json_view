@@ -11,8 +11,12 @@ const _encoder = JsonEncoder.withIndent('  ');
 class JsonView extends StatefulWidget {
   /// The constructor creates a widget
   /// from a json string
+  /// in [listKeyName] if it's empty the default value is Array<$type>[${count ?? 0}].
+  /// in [listKeyName] if it's empty the default value is Object
   JsonView.string(
     String jsonString, {
+    String? keyName,
+    String? listKeyName,
     Key? key,
     JsonViewTheme? theme,
   })  : _stringData = jsonString,
@@ -21,6 +25,8 @@ class JsonView extends StatefulWidget {
         _builder = StringJsonViewBuilder(
           jsonString,
           jsonViewTheme: theme,
+          keyName: keyName,
+          listKeyName: listKeyName,
         ),
         super(key: key);
 
@@ -32,6 +38,8 @@ class JsonView extends StatefulWidget {
   JsonView.asset(
     String path, {
     Key? key,
+    String? keyName,
+    String? listKeyName,
     JsonViewTheme? theme,
   })  : _assetsPath = path,
         _mapData = null,
@@ -39,6 +47,7 @@ class JsonView extends StatefulWidget {
         _builder = AssetJsonViewBuilder(
           path,
           jsonViewTheme: theme,
+          keyName: keyName,
         ),
         super(key: key);
 
@@ -47,12 +56,16 @@ class JsonView extends StatefulWidget {
   JsonView.map(
     Map<String, dynamic> map, {
     Key? key,
+    String? keyName,
+    String? listKeyName,
     JsonViewTheme? theme,
   })  : _mapData = map,
         _stringData = null,
         _assetsPath = null,
         _builder = MapJsonViewBuilder(
           map,
+          keyName: keyName,
+          listKeyName: listKeyName,
           jsonViewTheme: theme,
         ),
         super(key: key);
@@ -62,7 +75,6 @@ class JsonView extends StatefulWidget {
   final String? _assetsPath;
   final JsonViewBuilder _builder;
   static PrimitiveJsonItemBuilder? primitiveJsonItemBuilder;
-
   @override
   State<JsonView> createState() => _JsonViewState();
 }
@@ -90,8 +102,7 @@ class _JsonViewState extends State<JsonView> {
         break;
     }
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(10),
+      width: double.maxFinite,
       color: widget._builder.jsonViewTheme.backgroundColor,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,

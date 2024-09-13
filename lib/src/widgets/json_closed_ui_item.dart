@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/src/theme/json_view_theme.dart';
-import 'package:flutter_json_view/src/widgets/widgets.dart';
 
 class ClosedJsonObjectItem extends StatelessWidget {
   const ClosedJsonObjectItem({
@@ -29,13 +28,12 @@ class ClosedJsonObjectItem extends StatelessWidget {
             keyName ?? '',
             style: jsonViewTheme.keyStyle,
           ),
-        if (keyName != null) JsonViewSeparator(jsonViewTheme: jsonViewTheme),
-        if (isList)
+        if (keyName == null && isList)
           Text(
             'Array<$type>[${count ?? 0}]',
             style: jsonViewTheme.keyStyle,
           ),
-        if (!isList)
+        if (keyName == null && !isList)
           Text(
             'Object',
             style: jsonViewTheme.keyStyle,

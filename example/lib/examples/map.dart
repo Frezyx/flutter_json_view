@@ -19,16 +19,36 @@ class JsonViewApp extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: JsonView.map(
-            {
-              'author': {
-                'name': 'Stas',
-                'lastName': 'lin',
-                'githubLogin': 'Frezyx',
-                'age': 19,
-                'man': true,
-                'height': 186.5
-              },
+            const {
+              'author': [
+                {
+                  'name': 'Stas',
+                  'lastName': 'lin',
+                  'githubLogin': 'Frezyx',
+                  'age': 19,
+                  'man': true,
+                  'height': 186.5
+                },
+                {
+                  'name': 'Stas',
+                  'lastName': 'lin',
+                  'githubLogin': 'Frezyx',
+                  'age': 19,
+                  'man': true,
+                  'height': 186.5
+                },
+                {
+                  'name': 'Stas',
+                  'lastName': 'lin',
+                  'githubLogin': 'Frezyx',
+                  'age': 19,
+                  'man': true,
+                  'height': 186.5
+                }
+              ]
             },
+            keyName: '{...}',
+            listKeyName: '[...]',
           ),
         ),
       ),
