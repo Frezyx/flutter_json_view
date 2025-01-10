@@ -17,7 +17,13 @@ class JsonMapBuilder extends StatefulWidget {
 }
 
 class _JsonMapBuilderState extends State<JsonMapBuilder> {
-  bool isOpened = true;
+  late bool isOpened;
+
+  @override
+  void initState() {
+    isOpened = widget.jsonViewTheme.mapInitialExpanded;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +32,7 @@ class _JsonMapBuilderState extends State<JsonMapBuilder> {
       children: [
         GestureDetector(
           onTap: () => setState(() => isOpened = !isOpened),
-          child: isOpened
-              ? widget.jsonViewTheme.closeIcon
-              : widget.jsonViewTheme.openIcon,
+          child: isOpened ? widget.jsonViewTheme.closeIcon : widget.jsonViewTheme.openIcon,
         ),
         _buidItem(),
       ],
